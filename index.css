@@ -42,13 +42,13 @@ img.logo {
 }
 
 .nav-bar {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 375px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0 100px 0;
+  /* padding: 10px 0 100px 0; */
   /* background-color: #f8f8f8; */
   border-top: 2px solid #ccc;
   border-radius: 20px 20px 0 0;
