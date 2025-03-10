@@ -12,7 +12,7 @@ body {
 .phone-screen {
   width: 375px; /* Typical width of a phone screen */
   height: 667px; /* Typical height of a phone screen */
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: 2px solid #ccc;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,15 +43,15 @@ img.logo {
 
 .nav-bar {
   position: fixed;
-  bottom: 100px;
-  /* width: 30%; */
-  /* display: flex; */
-  /* justify-content: flex-end; */
+  bottom: 0;
+  width: 375px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  /* padding: 10px 20px; */
+  padding: 10px 0 100px 0;
   /* background-color: #f8f8f8; */
-  /* border-bottom: 1px solid #ccc; */
-  /* border-radius: 20px 20px 0 0; */
+  border-top: 2px solid #ccc;
+  border-radius: 20px 20px 0 0;
 }
 
 img.nav-icon {
