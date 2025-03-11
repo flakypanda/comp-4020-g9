@@ -46,7 +46,7 @@ html {
   transform: translateX(-50%);
   width: 100%;
   padding: 10px 15px;
-  background-color: #094609;
+  background-color: #386134;
   box-sizing: border-box;
 }
 
@@ -98,7 +98,7 @@ img.logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #094609;
+  background-color: #386134;
   padding: 10px 5px;
 }
 
@@ -210,4 +210,12 @@ img.nav-icon {
 .calendar-grid div.selected {
   background-color: #004d00;
   color: white;
+}
+
+/* Greenhouse Container */
+.greenhouse span {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  /* margin: 1000px 5px 0 0; */
+  /* padding: 1000px 0 0 0; */
 }
