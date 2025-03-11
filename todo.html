@@ -15,26 +15,79 @@
   <body class="background">
     <div class="phone-screen">
       <div class="logo-container">
-        <span>Plant</span>
-        <img src="images/logo.png" alt="logo" class="logo" />
-        <span>Buddy</span>
+        <!-- streak -->
+        <div class="streak">
+          <img src="images/leaf-white.png" alt="leaf" class="leaf" />
+          <span>0</span>
+        </div>
+
+        <!-- logo -->
+        <div class="logo-center">
+          <span>Plant</span>
+          <img src="images/logo.png" alt="logo" class="logo" />
+          <span>Buddy</span>
+        </div>
+
+        <!-- profile -->
+        <div class="profile">
+          <a href="profile.html">
+            <img src="images/profile-white.png" alt="profile" class="profile" />
+          </a>
+        </div>
       </div>
 
+      <!-- Home screen -->
+      <div class="home-container">
+        <!-- Dynamic Calendar -->
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button id="prevWeek">&lt;</button>
+            <span id="monthYear"></span>
+            <button id="nextWeek">&gt;</button>
+          </div>
+          <div class="calendar-grid">
+            <div class="day-label">S</div>
+            <div class="day-label">M</div>
+            <div class="day-label">T</div>
+            <div class="day-label">W</div>
+            <div class="day-label">T</div>
+            <div class="day-label">F</div>
+            <div class="day-label">S</div>
+          </div>
+          <div class="calendar-week" id="weekDays"></div>
+        </div>
+
+        <!-- Greenhouse -->
+      </div>
+
+      <!-- Navigation Bar at the bottom of the screen -->
       <div class="nav-bar">
         <a href="index.html" class="nav-link">
-            <img src="images/home-white.png" alt="home" class="nav-icon" />
+          <img src="images/home-white.png" alt="home" class="nav-icon" />
         </a>
         <a href="journal.html" class="nav-link">
-            <img src="images/journal-white.png" alt="journal" class="nav-icon" />
+          <img src="images/journal-white.png" alt="journal" class="nav-icon" />
         </a>
         <a href="todo.html" class="nav-link">
-          <img src="images/to-do-list-white.png" alt="to-do-list" class="nav-icon" />
+          <img
+            src="images/to-do-list-white.png"
+            alt="to-do-list"
+            class="nav-icon"
+          />
         </a>
         <a href="community.html" class="nav-link">
-          <img src="images/community-white.png" alt="community" class="nav-icon" />
+          <img
+            src="images/community-white.png"
+            alt="community"
+            class="nav-icon"
+          />
         </a>
         <a href="plantdoc.html" class="nav-link">
-          <img src="images/stethoscope-white.png" alt="plantdoc" class="nav-icon" />
+          <img
+            src="images/stethoscope-white.png"
+            alt="plantdoc"
+            class="nav-icon"
+          />
         </a>
       </div>
 
@@ -60,5 +113,9 @@
       </div>
 
     </div>
+
+    <!-- Identifies active page -->
+    <script src="index/nav-bar.js"></script>
+    <script src="index/calendar.js"></script>
   </body>
 </html>
