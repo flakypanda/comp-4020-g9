@@ -56,13 +56,15 @@ html {
   gap: 10px;
 }
 
-.streak, .profile {
+.streak,
+.profile {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.streak img, .profile img{
+.streak img,
+.profile img {
   max-width: 35px;
   max-height: 35px;
   object-fit: contain;
@@ -110,7 +112,6 @@ img.nav-icon {
   opacity: 2;
   transition: all 0.3s ease;
 }
-
 
 /* Home Screen Specific */
 /* Calendar Container */
@@ -171,6 +172,23 @@ img.nav-icon {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Highlight Selected Date */
+.calendar-week div.selected {
+  background-color: #004d00;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+/* Checked (Completed) Date */
+.calendar-week div.checked {
+  background-color: #008000; /* Green when checked */
   color: white;
 }
 
