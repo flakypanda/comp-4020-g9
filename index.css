@@ -46,7 +46,7 @@ html {
   transform: translateX(-50%);
   width: 100%;
   padding: 10px 0;
-  background-color: #094609;
+  background-color: #386134;
   gap: 10px;
 }
 
@@ -70,7 +70,7 @@ img.logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #094609;
+  background-color: #386134;
   padding: 10px 5px;
 }
 
