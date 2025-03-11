@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+*{
+  font-family: "Roboto", sans-serif;
+  color: white; /*for now*/
+}
+
+.week{
+    width: 100%;
+    /* max-width: 540px */
+    /* display:flex; */
+    background-color: black;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+
+}
+
+.week h3{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.to-do_today{
+    background-color: black;
+}
+
+.to-do_upcoming{
+    background-color: black;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aquamarine;
+}
