@@ -1,22 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.background {
+  background-image: url("images/background.png");
+  height: 100vh; /* Full viewport height */
+  background-position: center 0; /* Start at the top */
+  background-size: cover; /* Cover the viewport */
+  background-repeat: no-repeat;
+  position: fixed; /* Keep it in place */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  z-index: -1; /* Push behind content */
+}
+
+body,
+html {
   margin: 0;
-  background-color: rgb(2, 27, 2);
+  padding: 0;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  box-sizing: border-box;
 }
 
 .phone-screen {
-  width: 375px; /* Typical width of a phone screen */
-  height: 667px; /* Typical height of a phone screen */
+  width: 390px; /* Typical width of a phone screen */
+  max-width: 100%;
+  height: 844px; /* Typical height of a phone screen */
   background-color: rgb(255, 255, 255);
   border: 2px solid #ccc;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  overflow: auto;
 }
 
 .logo-container {
@@ -24,34 +41,37 @@ body {
   align-items: flex-end;
   justify-content: center;
   position: absolute;
-  top: 10px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
+  padding: 10px 0;
+  background-color: #094609;
+  gap: 10px;
 }
 
 .logo-container span {
   font-family: "Roboto", sans-serif;
   font-size: 36px;
-  /* margin-bottom: 10px 10px 0; */
+  color: white;
 }
 
 img.logo {
   max-width: 50px;
   max-height: 50px;
+  object-fit: contain;
 }
 
 .nav-bar {
   position: absolute;
   bottom: 0;
-  width: 375px;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 10px 0 100px 0; */
-  /* background-color: #f8f8f8; */
-  border-top: 2px solid #ccc;
-  border-radius: 20px 20px 0 0;
+  background-color: #094609;
+  padding: 10px 5px;
 }
 
 img.nav-icon {
