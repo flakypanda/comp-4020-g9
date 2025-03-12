@@ -239,11 +239,60 @@ img.nav-icon {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
   background-color: white;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+/* Position the menu container inside the plant card */
+.menu-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Style the menu icon */
+.menu-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Dropdown menu (hidden by default) */
+.menu-dropdown {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Hide by default */
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* Style the dropdown buttons */
+.menu-dropdown button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+/* Hover effect for buttons */
+.menu-dropdown button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show menu on hover */
+.menu-container:hover .menu-dropdown {
+  display: flex;
 }
 
 .plant span {
@@ -267,7 +316,7 @@ img.nav-icon {
   margin-top: 5px;
   font-size: 20px;
   font-weight: bold;
-  color: #004d00; /* Dark green color */
+  color: #004d00;
 }
 
 .plant-name {
