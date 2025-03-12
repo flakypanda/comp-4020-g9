@@ -6,6 +6,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link href="index.css" rel="stylesheet" />
+      <link href="to-do.css" rel="stylesheet" />
       <link rel="icon" type="image/png" href="images/logo.png" />
       <title>Plant Buddy</title>
     </head>
@@ -89,10 +90,31 @@
           />
         </a>
       </div>
+      <!-- Task to-do list -->
+      <div class="to-do_today"> 
+        <h3> Tasks to be done today</h3>
+        <ul id="list-container"> 
+        </ul>
+        <div class="row"> 
+          <input type="text" id="input-box" placeholder=" Add a new task">
+          <button onclick="addTask()">Add</button>
+        </div>
+      </div>
+
+      <div class="to-do_upcoming">
+        <h3> Upcoming </h3>
+        <ul id="Upcoming"> 
+          <li>Check Spider plant's soil dryness</li>
+          <li>Trim the Monstera </li>
+          <li>Check on Aloe vera</li>
+        </ul>
+      </div>
+
     </div>
 
     <!-- Identifies active page -->
     <script src="index/nav-bar.js"></script>
     <script src="index/calendar.js"></script>
+    <script src="index/to-do.js"></script>
   </body>
 </html>
