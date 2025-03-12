@@ -90,16 +90,17 @@
           />
         </a>
       </div>
+      <!-- Task to-do list -->
       <div class="to-do_today"> 
         <h3> Tasks to be done today</h3>
         <div class="row"> 
           <input type="text" id="input-box" placeholder=" Add a new task">
-          <button>Add</button>
+          <button onclick="addTask()">Add</button>
         </div>
         <ul id="list-container"> 
-          <li>Task 1</li>
+          <!-- <li class="checked">Task 1</li>
           <li>Task 2</li>
-          <li>Task 3</li>
+          <li>Task 3</li> -->
         </ul>
       </div>
 
@@ -112,5 +113,6 @@
     <!-- Identifies active page -->
     <script src="index/nav-bar.js"></script>
     <script src="index/calendar.js"></script>
+    <script src="index/to-do.js"></script>
   </body>
 </html>
