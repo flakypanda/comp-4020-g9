@@ -70,9 +70,12 @@ ul li{
     list-style: none;
     font-size: 16px;
     padding: 12px 8px 12px 50px;
+    margin: 10px;
     user-select: none;
     cursor: pointer; 
     position: relative;
+    border-radius: 10px;
+    background-color: #f0fcf1;
 }
 
 ul li::before{
@@ -89,6 +92,7 @@ ul li::before{
 }
 
 ul li.checked{
+    align-items: center;
     color: #555;
     text-decoration: line-through;
 }
