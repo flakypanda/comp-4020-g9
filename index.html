@@ -59,7 +59,86 @@
         <!-- Greenhouse -->
         <div class="greenhouse-container">
           <div class="greenhouse">
-            <span>My Greenhouse</span>
+            <span class="greenhouse-title">My Greenhouse</span>
+            <div class="greenhouse-grid" id="greenhouseGrid">
+              <div class="plant">
+                <img
+                  src="images/plants/farah.jpg"
+                  alt="plant"
+                  class="plant-image"
+                />
+                <span class="plant-pet-name">Farah</span>
+                <span class="plant-name">Mother of Thousands</span>
+                <div class="date-container">
+                  <span class="date-title">Date Added:</span>
+                  <span class="date">March 5, 2025</span>
+                </div>
+              </div>
+              <div class="plant">
+                <img
+                  src="images/plants/rosie.jpg"
+                  alt="plant"
+                  class="plant-image"
+                />
+                <span class="plant-pet-name">Rosie</span>
+                <span class="plant-name">Red Roses</span>
+                <div class="date-container">
+                  <span class="date-title">Date Added:</span>
+                  <span class="date">March 8, 2025</span>
+                </div>
+              </div>
+              <div class="plant">
+                <img
+                  src="images/plants/aloe-vera.jpg"
+                  alt="plant"
+                  class="plant-image"
+                />
+                <span class="plant-pet-name">-</span>
+                <span class="plant-name">Aloe Vera</span>
+                <div class="date-container">
+                  <span class="date-title">Date Added:</span>
+                  <span class="date">March 6, 2025</span>
+                </div>
+              </div>
+
+              <!-- Add Plant Button -->
+              <div class="plant-add" id="addPlantBtn">
+                <span class="plant-plus">+</span>
+              </div>
+
+              <div class="plant-form-overlay" id="plantFormOverlay"></div>
+
+              <!-- Hidden Form for Adding a Plant -->
+              <div class="plant-form-container" id="plantFormContainer">
+                <form id="plantForm">
+                  <h3>Add a New Plant</h3>
+                  <label for="plantImage">Upload Image:</label>
+                  <input type="file" id="plantImage" accept="image/*" />
+                  <img
+                    id="imagePreview"
+                    class="plant-image-preview"
+                    src=""
+                    alt="Preview"
+                    style="
+                      display: none;
+                      width: 100px;
+                      height: 100px;
+                      object-fit: cover;
+                      margin-top: 10px;
+                      border-radius: 10px;
+                    "
+                  />
+                  <label for="plantPetName">Pet Name:</label>
+                  <input type="text" id="plantPetName" required />
+                  <label for="plantName">Plant Name:</label>
+                  <input type="text" id="plantName" required />
+                  <label for="plantDate">Date Added:</label>
+                  <input type="date" id="plantDate" required />
+                  <button type="submit">Add Plant</button>
+                  <button type="button" id="cancelBtn">Cancel</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -96,8 +175,8 @@
       </div>
     </div>
 
-    <!-- Identifies active page -->
     <script src="index/nav-bar.js"></script>
     <script src="index/calendar.js"></script>
+    <script src="index/add-plant.js"></script>
   </body>
 </html>
