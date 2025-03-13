@@ -8,26 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const plantImageInput = document.getElementById("plantImage");
   const imagePreview = document.getElementById("imagePreview");
 
-  loadPlants(); // Load plants from local storage
+  const plantInfoModal = document.getElementById("plantInfoModal");
+  const modalPlantImage = document.getElementById("modalPlantImage");
+  const modalPlantPetName = document.getElementById("modalPlantPetName");
+  const modalPlantName = document.getElementById("modalPlantName");
+  const modalPlantCare = document.getElementById("modalPlantCare");
+  const closePlantInfo = document.querySelector(".close-modal");
+
+  // Load plants from localStorage when the page loads
+  loadPlants();
 
   // Show form when "Add" button is clicked
   addPlantBtn.addEventListener("click", function () {
     plantFormOverlay.style.display = "block";
     plantFormContainer.style.display = "block";
+    delete plantForm.dataset.editingPlantId; // Ensure form is in add mode
   });
 
   // Hide form when "Cancel" is clicked
   cancelBtn.addEventListener("click", function () {
-    plantFormOverlay.style.display = "none";
-    plantFormContainer.style.display = "none";
-    plantForm.reset();
-    imagePreview.style.display = "none"; // Hide preview when closing
+    closeForm();
   });
 
   // Also close form when clicking on the overlay
   plantFormOverlay.addEventListener("click", function () {
-    plantFormOverlay.style.display = "none";
-    plantFormContainer.style.display = "none";
+    closeForm();
   });
 
   // Handle image preview
@@ -45,94 +50,138 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Handle form submission (Add or Edit)
+  plantForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (plantForm.dataset.editingPlantId) {
+      updatePlant();
+    } else {
+      addNewPlant();
+    }
+  });
+
   // Function to format date to "Month Day, Year"
   function formatDate(dateString) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   }
 
-  // Handle form submission
-  plantForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent page refresh
+  // Function to close form and reset fields
+  function closeForm() {
+    plantFormOverlay.style.display = "none";
+    plantFormContainer.style.display = "none";
+    resetForm();
+  }
 
-    // Get user input values
+  // Function to reset form fields
+  function resetForm() {
+    plantForm.reset();
+    delete plantForm.dataset.editingPlantId; // Remove editing state
+    imagePreview.style.display = "none";
+  }
+
+  // Function to save plant to localStorage
+  function savePlant(plant) {
+    let plants = JSON.parse(localStorage.getItem("plants")) || [];
+    plants.push(plant);
+    localStorage.setItem("plants", JSON.stringify(plants));
+  }
+
+  // Function to load plants from localStorage
+  function loadPlants() {
+    let plants = JSON.parse(localStorage.getItem("plants")) || [];
+    plants.forEach(addPlantToGrid);
+  }
+
+  // Function to add a new plant
+  function addNewPlant() {
     const petName = document.getElementById("plantPetName").value.trim();
     const plantName = document.getElementById("plantName").value.trim();
     const plantDate = document.getElementById("plantDate").value;
-    const formattedDate = formatDate(plantDate); // Convert date format
+    const formattedDate = formatDate(plantDate);
     const plantImageSrc = imagePreview.src;
 
-    // Validate input fields
     if (!petName || !plantName || !plantDate) {
       alert("Please fill in all fields!");
       return;
     }
 
-    // Create new plant object
     const newPlant = {
       id: Date.now(),
       petName,
       plantName,
+      dateAddedRaw: plantDate,
       dateAdded: formattedDate,
       imageSrc: plantImageSrc,
     };
 
-    savePlant(newPlant); // Save plant to local storage
+    savePlant(newPlant);
+    addPlantToGrid(newPlant);
+    closeForm();
+  }
 
-    addPlantToGrid(newPlant); // Add plant to grid
-
-    // Hide overlay and form after adding plant
-    plantFormOverlay.style.display = "none";
-    plantFormContainer.style.display = "none";
-
-    // Clear form fields
-    plantForm.reset();
-    imagePreview.style.display = "none"; // Hide image preview
-  });
-
-  // Function to save plants from local storage
-  function savePlant(plant) {
+  // Function to update an existing plant
+  function updatePlant() {
     let plants = JSON.parse(localStorage.getItem("plants")) || [];
-    plant.dateAddedRaw = document.getElementById("plantDate").value; // Store raw YYYY-MM-DD
-    plant.dateAdded = formatDate(plant.dateAddedRaw);
-    plants.push(plant);
+    let plantId = Number(plantForm.dataset.editingPlantId);
+    let plantToEdit = plants.find((plant) => plant.id === plantId);
+
+    if (!plantToEdit) return;
+
+    // Update plant details
+    plantToEdit.petName = document.getElementById("plantPetName").value.trim();
+    plantToEdit.plantName = document.getElementById("plantName").value.trim();
+    plantToEdit.dateAddedRaw = document.getElementById("plantDate").value;
+    plantToEdit.dateAdded = formatDate(plantToEdit.dateAddedRaw);
+    plantToEdit.imageSrc = imagePreview.src;
+
+    // Save to local storage
     localStorage.setItem("plants", JSON.stringify(plants));
+
+    // Update UI
+    const plantCard = document.querySelector(`[data-id="${plantId}"]`);
+    if (plantCard) {
+      plantCard.querySelector(".plant-pet-name").textContent =
+        plantToEdit.petName;
+      plantCard.querySelector(".plant-name").textContent =
+        plantToEdit.plantName;
+      plantCard.querySelector(".date").textContent = plantToEdit.dateAdded;
+      plantCard.querySelector(".plant-image").src = plantToEdit.imageSrc;
+    }
+
+    closeForm();
   }
 
-  // Function to load plants from local storage
-  function loadPlants() {
-    let plants = JSON.parse(localStorage.getItem("plants")) || [];
-    plants.forEach(function (plant) {
-      addPlantToGrid(plant);
-    });
-  }
-
-  // Function to add plant to grid
+  // Function to add plant to UI
   function addPlantToGrid(plant) {
     const plantCard = document.createElement("div");
     plantCard.classList.add("plant");
+    plantCard.setAttribute("data-id", plant.id);
+
     plantCard.innerHTML = `
-      <img src="${plant.imageSrc}" alt="plant" class="plant-image" onerror="this.onerror=null; this.src='images/plants/default-plant.jpg';" />
-      <span class="plant-pet-name">${plant.petName}</span>
-            <span class="plant-name">${plant.plantName}</span>
-            <div class="date-container">
-                <span class="date-title">Date Added:</span>
-                <span class="date">${plant.dateAdded}</span>
-            </div>
-            <div class="menu-container">
-                  <img src="images/menu.png" alt="menu" class="menu-icon" />
+          <img src="${plant.imageSrc}" alt="plant" class="plant-image" onerror="this.onerror=null; this.src='images/plants/default-plant.jpg';" />
+          <span class="plant-pet-name">${plant.petName}</span>
+          <span class="plant-name">${plant.plantName}</span>
+          <div class="date-container">
+              <span class="date-title">Date Added:</span>
+              <span class="date">${plant.dateAdded}</span>
+          </div>
+          <div class="menu-container">
+              <img src="images/menu.png" alt="menu" class="menu-icon" />
+              <div class="menu-dropdown">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+              </div>
+          </div>
+      `;
 
-                  <div class="menu-dropdown">
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button>
-                  </div>
-                </div>
-    `;
-
+    // Edit button
     plantCard.querySelector(".edit-btn").addEventListener("click", function () {
       editPlant(plant.id);
     });
 
+    // Delete button
     plantCard
       .querySelector(".delete-btn")
       .addEventListener("click", function () {
@@ -142,32 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
     greenhouseGrid.insertBefore(plantCard, addPlantBtn);
   }
 
-  function resetForm() {
-    document.getElementById("plantPetName").value = "";
-    document.getElementById("plantName").value = "";
-    document.getElementById("plantDate").value = "";
-    imagePreview.src = "";
-    imagePreview.style.display = "none";
-  }
-
-  function updatePlant(event, plantId) {
-    event.preventDefault();
-
-    let plants = JSON.parse(localStorage.getItem("plants")) || [];
-    let plantToEdit = plants.find((plant) => plant.id === plantId);
-    if (!plantToEdit) return;
-
-    plantToEdit.petName = document.getElementById("plantPetName").value.trim();
-    plantToEdit.plantName = document.getElementById("plantName").value.trim();
-    plantToEdit.dateAddedRaw = document.getElementById("plantDate").value;
-    plantToEdit.dateAdded = formatDate(plantToEdit.dateAddedRaw);
-    plantToEdit.imageSrc = imagePreview.src;
-
-    localStorage.setItem("plants", JSON.stringify(plants));
-    resetForm();
-    location.reload(); // Refresh to update UI
-  }
-
+  // Function to edit a plant
   function editPlant(plantId) {
     let plants = JSON.parse(localStorage.getItem("plants")) || [];
     let plantToEdit = plants.find((plant) => plant.id === plantId);
@@ -181,18 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
     imagePreview.src = plantToEdit.imageSrc;
     imagePreview.style.display = "block";
 
+    // Store plant ID in form dataset
+    plantForm.dataset.editingPlantId = plantId;
+
     // Show form
     plantFormOverlay.style.display = "block";
     plantFormContainer.style.display = "block";
-
-    plantForm.removeEventListener("submit", handleSubmit);
-
-    // Create a new listener specific to this edit
-    function handleSubmit(event) {
-      updatePlant(event, plantId);
-    }
-
-    plantForm.addEventListener("submit", handleSubmit);
   }
 
   // Function to delete a plant
@@ -204,4 +222,43 @@ document.addEventListener("DOMContentLoaded", function () {
     // Remove from UI
     plantElement.remove();
   }
+
+  function openPlantInfo(plant) {
+    modalPlantImage.src = plant.querySelector(".plant-image").src;
+    modalPlantPetName.textContent =
+      plant.querySelector(".plant-pet-name").textContent;
+    modalPlantName.textContent = plant.querySelector(".plant-name").textContent;
+
+    // Example Care Difficulty (You can replace with real data)
+    modalPlantCare.textContent = "Easy";
+
+    plantInfoModal.style.display = "block";
+    plantFormOverlay.style.display = "block";
+  }
+
+  // Add click event to all plants
+  document.querySelectorAll(".plant").forEach((plant) => {
+    plant.addEventListener("click", function (event) {
+      if (!event.target.closest(".menu-container")) {
+        openPlantInfo(plant);
+      }
+    });
+  });
+
+  document.querySelectorAll(".menu-container").forEach((menu) => {
+    menu.addEventListener("click", function (event) {
+      event.stopPropagation(); // Stops the event from bubbling up
+    });
+  });
+
+  // Close modal when clicking the close button
+  closePlantInfo.addEventListener("click", function () {
+    plantInfoModal.style.display = "none";
+    plantFormOverlay.style.display = "none";
+  });
+
+  plantFormOverlay.addEventListener("click", function () {
+    plantInfoModal.style.display = "none";
+    plantFormOverlay.style.display = "none";
+  });
 });
