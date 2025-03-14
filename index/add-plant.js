@@ -99,13 +99,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to add a new plant
   function addNewPlant() {
-    const petName = document.getElementById("plantPetName").value.trim();
+    let petName = document.getElementById("plantPetName").value.trim();
+    petName ||= "_";
     const plantName = document.getElementById("plantName").value.trim();
     const plantDate = document.getElementById("plantDate").value;
     const formattedDate = formatDate(plantDate);
     const plantImageSrc = imagePreview.src;
 
-    if (!petName || !plantName || !plantDate) {
+    if (!plantName || !plantDate) {
       alert("Please fill in all fields!");
       return;
     }
@@ -293,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } else {
       let li = document.createElement("li");
-      li.textContent = "No common problems listed.";
+      li.textContent = "No incompatible plants listed.";
       incompatiblePlants.appendChild(li);
     }
 

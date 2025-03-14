@@ -6,6 +6,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link href="index.css" rel="stylesheet" />
+      <link href="plantdoc.css" rel="stylesheet" />
       <link rel="icon" type="image/png" href="images/logo.png" />
       <title>Plant Buddy</title>
     </head>
@@ -29,6 +30,73 @@
           <a href="profile.html">
             <img src="images/profile-white.png" alt="profile" class="profile" />
           </a>
+        </div>
+      </div>
+
+      <div class="diagnosis-container">
+        <div class="diagnosis-header">
+          <h2>Plant Doctor</h2>
+          <p>Identify plant problems and get solutions!</p>
+        </div>
+
+        <div class="diagnosis-content">
+          <div class="tab-navigation">
+            <button class="tab active" id="myPlantsTab">My Plants</button>
+            <button class="tab" id="pastDiagnosisTab">Past Diagnosis</button>
+          </div>
+
+          <div class="search-container">
+            <input
+              type="text"
+              placeholder="Search..."
+              id="searchPlants"
+            />
+            <button class="search-btn">Search</button>
+          </div>
+
+          <div class="plants-grid" id="myPlantsSection">
+            <div class="plant-card">
+              <div class="plant-image">
+                <img src="images/plants/farah.jpg" alt="Farah">
+              </div>
+              <p class="plant-name">Mother of Thousands</p>
+            </div>
+          
+            <div class="plant-card">
+              <div class="plant-image">
+                <img src="images/plants/rosie.jpg" alt="Rosie">
+              </div>
+              <p class="plant-name">Red Roses</p>
+            </div>
+          
+            <div class="plant-card">
+              <div class="plant-image">
+                <img src="images/plants/aloe-vera.jpg" alt="No Name">
+              </div>
+              <p class="plant-name">Aloe Vera</p>
+            </div>
+          </div>
+          
+
+          <div
+            class="past-diagnosis"
+            id="pastDiagnosisSection"
+            style="display: none"
+          >
+            <div class="diagnosis-card">
+              <h4>Mother of Thousands</h4>
+              <p><strong>Issue:</strong> Yellowing Leaves</p>
+              <p><strong>Diagnosis Date:</strong> March 8, 2025</p>
+            </div>
+
+            <div class="diagnosis-card">
+              <h4>Red Roses</h4>
+              <p><strong>Issue:</strong> Brown Spots on Leaves</p>
+              <p><strong>Diagnosis Date:</strong> February 28, 2025</p>
+            </div>
+          </div>
+
+          <button class="add-plant-btn">+</button>
         </div>
       </div>
 
@@ -65,5 +133,6 @@
 
     <script src="index/nav-bar.js"></script>
     <script src="js/streak.js"></script>
+    <script src="js/plant-doc.js"></script>
   </body>
 </html>
