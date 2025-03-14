@@ -75,13 +75,16 @@ function showTask() {
 
 function showUpcoming() {
     let tasksByDate = JSON.parse(localStorage.getItem("tasksByDate")) || {};
-    if(selectedDate!=null){
-        let subSelect = selectedDate.substring(8,10);
-        let tmr = (parseInt(subSelect) + 1)%31;
-        let tmStr = selectedDate.substring(8,10);
-        console.log(tmStr);
+    let newDate = new Date(selectedDate);
+    if(newDate != null ){
+        
+        newDate = newDate + 2;
+
+        //let tmrDate = new Date().setDate(tmr);
+
+        console.log(newDate);
     }
-    upcomingContainer.innerHTML = tasksByDate[selectedDate] || "";
+    upcomingContainer.innerHTML = tasksByDate[newDate] || "";
 }
 
 window.addEventListener("dateChanged", function () {
@@ -89,14 +92,6 @@ window.addEventListener("dateChanged", function () {
     showTask();
     showUpcoming();
 });
-
-function getDate(){
-    //since we know the position of the date
-    let subSelect = selectedDate.substring(8,10);
-    let tmr = (parseInt(subSelect) + 1)%31;
-    let tmStr = selectedDate.substring(8,10);
-    let tmrt = new Date().parse();
-}
 
 showTask();
 showUpcoming();
