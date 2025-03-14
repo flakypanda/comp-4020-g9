@@ -6,7 +6,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link href="index.css" rel="stylesheet" />
-      <link href="plantdoc.css" rel="stylesheet" />
+      <link href="diagnosis.css" rel="stylesheet" />
       <link rel="icon" type="image/png" href="images/logo.png" />
       <title>Plant Buddy</title>
     </head>
@@ -35,68 +35,40 @@
 
       <div class="diagnosis-container">
         <div class="diagnosis-header">
-          <h2>Plant Doctor</h2>
-          <p>Identify plant problems and get solutions!</p>
+          <a href="plantdoc.html">
+            <img
+              id="backbutton"
+              src="images/diagnosis/back-button.png"
+              alt="back"
+              class="back-btn"
+            />
+          </a>
+          <h2 id="plantPetName" class="diag-title"></h2>
         </div>
 
-        <div class="diagnosis-content">
-          <div class="tab-navigation">
-            <button class="tab active" id="myPlantsTab">My Plants</button>
-            <button class="tab" id="pastDiagnosisTab">Past Diagnosis</button>
-          </div>
-
-          <div class="search-container">
-            <input
-              type="text"
-              placeholder="Search Plants..."
-              id="searchPlants"
-            />
-            <button class="search-btn">Search</button>
-          </div>
-
-          <div class="plants-grid" id="myPlantsSection">
-            <div class="plant-card" data-plant="Mother of Thousands">
-              <div class="plant-image">
-                <img src="images/plants/farah.jpg" alt="Farah">
+        <div class="diag-content">
+          <div class="plant-info">
+            <div>
+              <div class="plant-image-container">
+                <img id="plantImage" src="" alt="Plant" />
               </div>
-              <p class="plant-name">Mother of Thousands</p>
+              <p id="plantScientificName" class="scientific-name"></p>
             </div>
-          
-            <div class="plant-card" data-plant="Red Roses">
-              <div class="plant-image">
-                <img src="images/plants/rosie.jpg" alt="Rosie">
-              </div>
-              <p class="plant-name">Red Roses</p>
+
+            <div class="search-container">
+              <input
+                type="text"
+                placeholder="Search symptoms..."
+                id="searchSymptoms"
+              />
+              <button class="search-btn">Search</button>
             </div>
-          
-            <div class="plant-card" data-plant="Aloe Vera">
-              <div class="plant-image">
-                <img src="images/plants/aloe-vera.jpg" alt="No Name">
-              </div>
-              <p class="plant-name">Aloe Vera</p>
+
+            <div class="common-issues">
+              <h3 class="issue-title">Common Issues</h3>
+              <div id="issuesContainer"></div>
             </div>
           </div>
-          
-
-          <div
-            class="past-diagnosis"
-            id="pastDiagnosisSection"
-            style="display: none"
-          >
-            <div class="diagnosis-card">
-              <h4>Mother of Thousands</h4>
-              <p><strong>Issue:</strong> Yellowing Leaves</p>
-              <p><strong>Diagnosis Date:</strong> March 8, 2025</p>
-            </div>
-
-            <div class="diagnosis-card">
-              <h4>Red Roses</h4>
-              <p><strong>Issue:</strong> Brown Spots on Leaves</p>
-              <p><strong>Diagnosis Date:</strong> February 28, 2025</p>
-            </div>
-          </div>
-
-          <button class="add-plant-btn">+</button>
         </div>
       </div>
 
@@ -133,7 +105,7 @@
 
     <script src="index/nav-bar.js"></script>
     <script src="js/streak.js"></script>
-    <script src="js/plant-doc.js"></script>
+    <script src="js/diagnosis-db.js"></script>
     <script src="js/diagnosis.js"></script>
   </body>
 </html>

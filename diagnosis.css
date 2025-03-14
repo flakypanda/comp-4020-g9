@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #004d00;
+  border-radius: 10px;
+}
+
+.diagnosis-container {
+  top: 0;
+  margin-top: 70px;
+  align-items: center;
+  background-color: #f0f5f1;
+}
+
+.diagnosis-header {
+  display: flex;
+  align-items: center;
+  background-color: #004d00;
+  color: white;
+  padding: 15px;
+}
+
+.diag-content {
+  overflow-y: auto;
+  height: 650px;
+}
+
+.back-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.diag-title {
+  font-family: "Roboto", sans-serif;
+  margin: 0 30px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.plant-info {
+  text-align: center;
+  padding: 15px;
+}
+
+.plant-image-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.scientific-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  color: #004d00;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.search-container input {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #004d00;
+  border-radius: 5px;
+}
+
+.search-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.issue-card {
+  background: white;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.issue-title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #004d00;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.issue-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.issue-table th,
+.issue-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.issue-table th {
+  background-color: #004d00;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.issue-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.issue-table td:first-child {
+  text-align: left;
+  color: #004d00;
+  font-weight: bold;
+}
+
+.issue-table td:last-child {
+  text-align: left;
+  color: #000000;
+}

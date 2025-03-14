@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function switchTab(activeTab, inactiveTab, showSection, hideSection) {
     activeTab.classList.add("active");
     inactiveTab.classList.remove("active");
-    showSection.style.display = "grid"; // or "flex" if needed
+    showSection.style.display = "grid";
     hideSection.style.display = "none";
   }
 
@@ -31,5 +31,18 @@ document.addEventListener("DOMContentLoaded", function () {
       pastDiagnosisSection,
       myPlantsSection
     );
+  });
+
+  const plantCards = document.querySelectorAll(".plant-card");
+
+  plantCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      const plantName = this.getAttribute("data-plant"); // Get the plant name from data attribute
+      if (plantName) {
+        window.location.href = `diagnosis.html?plant=${encodeURIComponent(
+          plantName
+        )}`;
+      }
+    });
   });
 });
