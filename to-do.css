@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
 .list-container,
-.to-do_upcoming {
+.to-do_upcoming, .to-do_today {
   font-family: "Roboto", sans-serif;
   color: black;
 }
