@@ -173,33 +173,59 @@
           <span id="closePlantInfo" class="close-modal">&times;</span>
           <h2 id="modalPlantPetName" class="plant-title"></h2>
           <div class="plant-info-flex">
-            <div class="plant-details">
-              <p>
-                <strong>Common Name:</strong>
-                <span id="modalPlantName"></span>
-              </p>
-              <p>
-                <strong>Care Difficulty:</strong>
-                <span id="modalPlantCare"></span>
-              </p>
-              <p>
-                <strong>Water Needs:</strong> <span id="modalWaterNeeds"></span>
-              </p>
-              <p>
-                <strong>Sunlight Requirements:</strong>
-                <span id="modalSunlight"></span>
-              </p>
-              <p>
-                <strong>Growth Rate:</strong> <span id="modalGrowthRate"></span>
-              </p>
-            </div>
-
             <img
               id="modalPlantImage"
               class="plant-info-image-preview"
               src=""
               alt="Plant"
             />
+            <div class="plant-details">
+              <p>
+                <strong>Common Name:</strong>
+                <span id="modalPlantName"></span>
+              </p>
+              <p>
+                <strong>Botanical Name:</strong>
+                <span id="modalPlantBotName"></span>
+              </p>
+              <p>
+                <strong>Care Difficulty:</strong>
+                <span id="modalPlantCare"></span>
+              </p>
+              <p class="toxicity-container">
+                <img src="images/warning.png" alt="warning" class="warning-icon" />
+                <span id="modalToxicity"></span>
+              </p>
+
+              <h4 id="modalPlantCareReq" class="section-title">Care Information</h4>
+              <p>
+                <strong>Pot:</strong> <span id="modalPot"></span>
+              </p>
+              <p>
+                <strong>Soil:</strong> <span id="modalSoilNeeds"></span>
+              </p>
+              <p>
+                <strong>Water:</strong> <span id="modalWaterNeeds"></span>
+              </p>
+              <p>
+                <strong>Light:</strong>
+                <span id="modalSunlight"></span>
+              </p>
+              <p>
+                <strong>Temperature:</strong> <span id="modalTemp"></span>
+              </p>
+              <p>
+                <strong>Humidity:</strong> <span id="modalHumid"></span>
+              </p>
+              <p>
+                <strong>Growth Rate:</strong> <span id="modalGrowthRate"></span>
+              </p>
+              <h4 id="modalPlantCommonProbs" class="section-title">Common Problems</h4>
+              <ul id="modalCommonProbs"></ul>
+              <h4 id="modalPlantEnemies" class="section-title">Incompatible Plants</h4>
+              <ul id="modalIncompatiblePlants"></ul>
+            </div>
+
           </div>
         </div>
       </div>

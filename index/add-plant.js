@@ -1,3 +1,5 @@
+import plantDatabase from "./plant-db.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const addPlantBtn = document.getElementById("addPlantBtn");
   const plantFormOverlay = document.getElementById("plantFormOverlay");
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const plantInfoModal = document.getElementById("plantInfoModal");
   const modalPlantImage = document.getElementById("modalPlantImage");
   const modalPlantPetName = document.getElementById("modalPlantPetName");
+  const modalPlantBotName = document.getElementById("modalPlantBotName");
   const modalPlantName = document.getElementById("modalPlantName");
   const modalPlantCare = document.getElementById("modalPlantCare");
   const closePlantInfo = document.querySelector(".close-modal");
@@ -224,13 +227,64 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openPlantInfo(plant) {
+    const plantName = plant.querySelector(".plant-name").textContent.trim();
+    const plantDetails = plantDatabase[plantName] || {
+      botanicalName: "Unknown",
+      pot: "Unknown",
+      soil: "Unknown",
+      waterNeeds: "Unknown",
+      sunlight: "Unknown",
+      temperature: "Unknown",
+      humidity: "Unknown",
+      growthRate: "Unknown",
+      careDifficulty: "Unknown",
+      toxicity: "Unknown"
+    };
+
     modalPlantImage.src = plant.querySelector(".plant-image").src;
     modalPlantPetName.textContent =
       plant.querySelector(".plant-pet-name").textContent;
-    modalPlantName.textContent = plant.querySelector(".plant-name").textContent;
+    modalPlantName.textContent = plantName;
+    modalPlantBotName.textContent = plantDetails.botanicalName;
+    modalPlantCare.textContent = plantDetails.careDifficulty;
+    modalPot.textContent = plantDetails.pot;
+    modalSoilNeeds.textContent = plantDetails.soil;
+    modalWaterNeeds.textContent = plantDetails.waterNeeds;
+    modalSunlight.textContent = plantDetails.sunlight;
+    modalTemp.textContent = plantDetails.temperature;
+    modalHumid.textContent = plantDetails.humidity;
+    modalGrowthRate.textContent = plantDetails.growthRate;
+    modalToxicity.textContent = plantDetails.toxicity;
 
-    // Example Care Difficulty (You can replace with real data)
-    modalPlantCare.textContent = "Easy";
+    const commonProblemsList = document.getElementById("modalCommonProbs");
+    commonProblemsList.innerHTML = "";
+
+    if (plantDetails.commonProblems && plantDetails.commonProblems.length > 0) {
+      plantDetails.commonProblems.forEach((problem) => {
+        let li = document.createElement("li");
+        li.textContent = problem;
+        commonProblemsList.appendChild(li);
+      });
+    } else {
+      let li = document.createElement("li");
+      li.textContent = "No common problems listed.";
+      commonProblemsList.appendChild(li);
+    }
+
+    const incompatiblePlants = document.getElementById("modalIncompatiblePlants");
+    incompatiblePlants.innerHTML = "";
+
+    if (plantDetails.incompatiblePlants && plantDetails.incompatiblePlants.length > 0) {
+      plantDetails.incompatiblePlants.forEach((plant) => {
+        let li = document.createElement("li");
+        li.textContent = plant;
+        incompatiblePlants.appendChild(li);
+      });
+    } else {
+      let li = document.createElement("li");
+      li.textContent = "No common problems listed.";
+      incompatiblePlants.appendChild(li);
+    }
 
     plantInfoModal.style.display = "block";
     plantFormOverlay.style.display = "block";
@@ -247,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".menu-container").forEach((menu) => {
     menu.addEventListener("click", function (event) {
-      event.stopPropagation(); // Stops the event from bubbling up
+      event.stopPropagation();
     });
   });
 
