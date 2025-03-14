@@ -78,13 +78,13 @@ function showUpcoming() {
     let newDate = new Date(selectedDate);
     if(newDate != null ){
         
-        newDate = newDate + 2;
+        let tmr = newDate.getDate()+ 1;
 
-        //let tmrDate = new Date().setDate(tmr);
+        newDate = new Date(newDate.setDate(tmr));
 
-        console.log(newDate);
+        //console.log(newDate.toISOString().split("T")[0]);
     }
-    upcomingContainer.innerHTML = tasksByDate[newDate] || "";
+    upcomingContainer.innerHTML = tasksByDate[newDate.toISOString().split("T")[0]] || "Nothing planned for tomorrow";
 }
 
 window.addEventListener("dateChanged", function () {
