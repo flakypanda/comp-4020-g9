@@ -62,7 +62,7 @@ const plantDatabase = {
       "Shade plants that prefer lower light",
     ],
   },
-  Monstera: {
+  "Monstera": {
     botanicalName: "Monstera deliciosa",
     pot: "Large container with sturdy support (moss pole recommended)",
     soil: "Well-draining, peat-based soil mix",

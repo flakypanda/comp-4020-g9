@@ -526,3 +526,7 @@ p.toxicity-container {
   padding-top: 0;
   font-size: 17px;
 }
+
+ul {
+  padding-right: 10px;
+}

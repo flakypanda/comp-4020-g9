@@ -179,6 +179,12 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
       `;
 
+    plantCard.addEventListener("click", function (event) {
+      if (!event.target.closest(".menu-container")) {
+        openPlantInfo(plant.id);
+      }
+    });
+
     // Edit button
     plantCard.querySelector(".edit-btn").addEventListener("click", function () {
       editPlant(plant.id);
@@ -238,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
       humidity: "Unknown",
       growthRate: "Unknown",
       careDifficulty: "Unknown",
-      toxicity: "Unknown"
+      toxicity: "Unknown",
     };
 
     modalPlantImage.src = plant.querySelector(".plant-image").src;
@@ -271,10 +277,15 @@ document.addEventListener("DOMContentLoaded", function () {
       commonProblemsList.appendChild(li);
     }
 
-    const incompatiblePlants = document.getElementById("modalIncompatiblePlants");
+    const incompatiblePlants = document.getElementById(
+      "modalIncompatiblePlants"
+    );
     incompatiblePlants.innerHTML = "";
 
-    if (plantDetails.incompatiblePlants && plantDetails.incompatiblePlants.length > 0) {
+    if (
+      plantDetails.incompatiblePlants &&
+      plantDetails.incompatiblePlants.length > 0
+    ) {
       plantDetails.incompatiblePlants.forEach((plant) => {
         let li = document.createElement("li");
         li.textContent = plant;
