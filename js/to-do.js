@@ -1,5 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+
+const addButton = document.getElementById("addButton");
+const upcomingContainer = document.getElementById("upcoming");
+
 
 let selectedDate = localStorage.getItem("selectedDate") || new Date().toISOString().split("T")[0];
 
@@ -20,6 +25,10 @@ function addTask() {
     saveData();
     inputBox.value = "";
 }
+
+addButton.addEventListener("click", function (e) {
+    addTask();
+}, false);
 
 listContainer.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
@@ -64,9 +73,32 @@ function showTask() {
     listContainer.innerHTML = tasksByDate[selectedDate] || "";
 }
 
+function showUpcoming() {
+    let tasksByDate = JSON.parse(localStorage.getItem("tasksByDate")) || {};
+    if(selectedDate!=null){
+        let subSelect = selectedDate.substring(8,10);
+        let tmr = (parseInt(subSelect) + 1)%31;
+        let tmStr = selectedDate.substring(8,10);
+        console.log(tmStr);
+    }
+    upcomingContainer.innerHTML = tasksByDate[selectedDate] || "";
+}
+
 window.addEventListener("dateChanged", function () {
     selectedDate = localStorage.getItem("selectedDate");
     showTask();
+    showUpcoming();
 });
 
+function getDate(){
+    //since we know the position of the date
+    let subSelect = selectedDate.substring(8,10);
+    let tmr = (parseInt(subSelect) + 1)%31;
+    let tmStr = selectedDate.substring(8,10);
+    let tmrt = new Date().parse();
+}
+
 showTask();
+showUpcoming();
+
+});
