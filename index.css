@@ -24,6 +24,15 @@ html {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #004d00;
+  border-radius: 10px;
+}
+
 .phone-screen {
   width: 390px; /* Typical width of a phone screen */
   max-width: 100%;
@@ -33,7 +42,7 @@ html {
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .logo-container {
@@ -213,9 +222,311 @@ img.nav-icon {
 }
 
 /* Greenhouse Container */
-.greenhouse span {
+.greenhouse-title {
+  display: block;
   font-family: "Roboto", sans-serif;
   font-size: 25px;
-  /* margin: 1000px 5px 0 0; */
-  /* padding: 1000px 0 0 0; */
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.greenhouse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 15px; /* Space between grid items */
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* Style for each plant container */
+.plant {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Position the menu container inside the plant card */
+.menu-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Style the menu icon */
+.menu-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Dropdown menu (hidden by default) */
+.menu-dropdown {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Hide by default */
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* Style the dropdown buttons */
+.menu-dropdown button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+/* Hover effect for buttons */
+.menu-dropdown button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show menu on hover */
+.menu-container:hover .menu-dropdown {
+  display: flex;
+}
+
+.plant span {
+  text-align: left;
+  width: 100%;
+}
+
+/* Plant Image Styling */
+.plant-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+/* Plant Name Styling */
+.plant-pet-name {
+  display: block;
+  text-align: left;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #004d00;
+}
+
+.plant-name {
+  display: block;
+  text-align: left;
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.date-container {
+  display: block;
+  gap: 5px;
+  width: 100%;
+}
+
+.date-title {
+  display: block;
+  text-align: left;
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 15px;
+}
+
+.plant-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 155px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f0fff0; /* Light green */
+  border: 2px dashed #004d00; /* Dashed border effect */
+  cursor: pointer;
+}
+
+.plant-plus {
+  font-size: 50px;
+  font-weight: bold;
+  color: #004d00;
+}
+
+.plant-image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.plant-form-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  border-radius: 20px;
+}
+
+.plant-form-container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 11;
+  width: 90%;
+  max-width: 250px;
+}
+
+/* Form styling */
+#plantForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#plantForm label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#plantForm input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#plantForm button {
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Button styles */
+#plantForm button[type="submit"] {
+  background-color: #004d00;
+  color: white;
+}
+
+#cancelBtn {
+  background-color: red;
+  color: white;
+}
+
+/* Plant Info Modal */
+.plant-info-container {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 325px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #ff0000;
+}
+
+.plant-title {
+  color: #004d00;
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.plant-info-image-preview {
+  width: 125px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.plant-details {
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.plant-details p {
+  font-size: 17px;
+  color: #000000;
+  margin: 5px 0;
+}
+
+p.toxicity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  color: red;
+}
+
+.warning-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+
+#modalCommonProbs,
+#modalIncompatiblePlants {
+  margin-top: 5px;
+  padding-top: 0;
+  font-size: 17px;
+}
+
+ul {
+  padding-right: 10px;
 }

@@ -1,0 +1,110 @@
+/* Center Profile Section */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.profile-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #004d00;
+  border-radius: 10px;
+  width: 85%;
+  max-height: 625px;
+  overflow-y: auto;
+  padding: 30px 10px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Profile Image in Main Section */
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+/* Profile Name */
+.profile-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: white;
+}
+
+/* Profile Info Text */
+.profile-info {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+
+/* Profile Icon in Header */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-stats,
+.achievements,
+.settings {
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  width: 90%;
+  text-align: left;
+}
+
+h3 {
+  margin-bottom: 8px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.settings span {
+  font-weight: bold;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.achievement-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.setting-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
