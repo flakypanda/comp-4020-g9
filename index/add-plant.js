@@ -66,8 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to format date to "Month Day, Year"
   function formatDate(dateString) {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    let actDate = new Date(dateString);//create new Date object .. buggy and creates a day before
+    let tmr = actDate.getDate()+ 1;//add to the new date
+    actDate = new Date(actDate.setDate(tmr));
+    return actDate;
   }
 
   // Function to close form and reset fields
@@ -103,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     petName ||= "_";
     const plantName = document.getElementById("plantName").value.trim();
     const plantDate = document.getElementById("plantDate").value;
+    
     const formattedDate = formatDate(plantDate);
     const plantImageSrc = imagePreview.src;
 
@@ -150,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         plantToEdit.petName;
       plantCard.querySelector(".plant-name").textContent =
         plantToEdit.plantName;
-      plantCard.querySelector(".date").textContent = plantToEdit.dateAdded;
+      plantCard.querySelector(".date").textContent = plantToEdit.dateAdded.toISOString().split("T")[0];
       plantCard.querySelector(".plant-image").src = plantToEdit.imageSrc;
     }
 
@@ -169,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <span class="plant-name">${plant.plantName}</span>
           <div class="date-container">
               <span class="date-title">Date Added:</span>
-              <span class="date">${plant.dateAdded}</span>
+              <span class="date">${plant.dateAddedRaw}</span>
           </div>
           <div class="menu-container">
               <img src="images/menu.png" alt="menu" class="menu-icon" />
