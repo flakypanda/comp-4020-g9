@@ -2,13 +2,11 @@
 
 <html lang="en">
   <head>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="index.css" rel="stylesheet" />
-      <link rel="icon" type="image/png" href="images/logo.png" />
-      <title>Plant Buddy</title>
-    </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Plant Buddy</title>
   </head>
 
   <body class="background">
@@ -167,6 +165,71 @@
         </div>
       </div>
 
+      <div class="plant-form-overlay" id="plantFormOverlay"></div>
+
+      <!-- Plant Info Card -->
+      <div id="plantInfoModal" class="plant-info-container">
+        <div class="plant-info-content">
+          <span id="closePlantInfo" class="close-modal">&times;</span>
+          <h2 id="modalPlantPetName" class="plant-title"></h2>
+          <div class="plant-info-flex">
+            <img
+              id="modalPlantImage"
+              class="plant-info-image-preview"
+              src=""
+              alt="Plant"
+            />
+            <div class="plant-details">
+              <p>
+                <strong>Common Name:</strong>
+                <span id="modalPlantName"></span>
+              </p>
+              <p>
+                <strong>Botanical Name:</strong>
+                <span id="modalPlantBotName"></span>
+              </p>
+              <p>
+                <strong>Care Difficulty:</strong>
+                <span id="modalPlantCare"></span>
+              </p>
+              <p class="toxicity-container">
+                <img src="images/warning.png" alt="warning" class="warning-icon" />
+                <span id="modalToxicity"></span>
+              </p>
+
+              <h4 id="modalPlantCareReq" class="section-title">Care Information</h4>
+              <p>
+                <strong>Pot:</strong> <span id="modalPot"></span>
+              </p>
+              <p>
+                <strong>Soil:</strong> <span id="modalSoilNeeds"></span>
+              </p>
+              <p>
+                <strong>Water:</strong> <span id="modalWaterNeeds"></span>
+              </p>
+              <p>
+                <strong>Light:</strong>
+                <span id="modalSunlight"></span>
+              </p>
+              <p>
+                <strong>Temperature:</strong> <span id="modalTemp"></span>
+              </p>
+              <p>
+                <strong>Humidity:</strong> <span id="modalHumid"></span>
+              </p>
+              <p>
+                <strong>Growth Rate:</strong> <span id="modalGrowthRate"></span>
+              </p>
+              <h4 id="modalPlantCommonProbs" class="section-title">Common Problems</h4>
+              <ul id="modalCommonProbs"></ul>
+              <h4 id="modalPlantEnemies" class="section-title">Incompatible Plants</h4>
+              <ul id="modalIncompatiblePlants"></ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <!-- Navigation Bar at the bottom of the screen -->
       <div class="nav-bar">
         <a href="index.html" class="nav-link">
@@ -201,6 +264,7 @@
 
     <script src="index/nav-bar.js"></script>
     <script src="index/calendar.js"></script>
-    <script src="index/add-plant.js"></script>
+    <script src="index/plant-db.js" type="module"></script>
+    <script src="index/add-plant.js" type="module"></script>
   </body>
 </html>

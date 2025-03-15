@@ -1,0 +1,88 @@
+const plantDatabase = {
+  "Mother of Thousands": {
+    botanicalName: "Kalanchoe Daigremontiana",
+    pot: "Terracotta or unglazed clay pot with drainage",
+    soil: "Cactus or Succulent Mix",
+    waterNeeds: "Low (once every 2 weeks)",
+    sunlight: "Bright, indirect sunlight",
+    temperature: "18C - 27C [65F - 80F]",
+    humidity: "Low",
+    growthRate: "Slow",
+    careDifficulty: "Easy",
+    toxicity: "Toxic to pets and humans if ingested",
+    commonProblems: [
+      "Leggy growth caused by insufficient light",
+      "Soft, translucent leaves caused by overwatering",
+      "Pest issues like mealybugs, aphids, scale insects",
+    ],
+    incompatiblePlants: [
+      "Other succulents (will invade them with plantlets)",
+      "Plants that require frequent watering",
+    ],
+  },
+  "Red Roses": {
+    botanicalName: "Rosa spp.",
+    pot: "Large, deep container with good drainage",
+    soil: "Loamy, well-draining soil rich in organic matter",
+    waterNeeds: "High (water deeply 2-3 times per week, more in hot weather)",
+    sunlight: "Full Sun (6+ hours per day)",
+    temperature: "15C - 30C [60F - 85F]",
+    humidity: "Moderate",
+    growthRate: "Fast",
+    careDifficulty: "Hard",
+    toxicity: "Non-toxic but thorns can cause skin irritation",
+    commonProblems: [
+      "Black spot fungus caused by high humidity",
+      "Powdery mildew in poor air circulation",
+      "Aphids, spider mites, and Japanese beetles",
+    ],
+    incompatiblePlants: [
+      "Heavy water-needing plants that compete for moisture",
+      "Shady plants that prefer indirect light",
+    ],
+  },
+  "Aloe Vera": {
+    botanicalName: "Aloe barbadensis miller",
+    pot: "Terracotta pot with drainage holes",
+    soil: "Cactus or Succulent Mix",
+    waterNeeds: "Low (water every 2-3 weeks; let soil dry completely)",
+    sunlight: "Bright, indirect sunlight",
+    temperature: "16C - 26C [60F - 80F]",
+    humidity: "Low",
+    growthRate: "Slow",
+    careDifficulty: "Easy",
+    toxicity: "Mildly toxic to pets if ingested",
+    commonProblems: [
+      "Brown tips due to fluoride or salty water",
+      "Root rot from overwatering",
+      "Lack of growth due to insufficient light",
+    ],
+    incompatiblePlants: [
+      "Moisture-loving plants like ferns",
+      "Shade plants that prefer lower light",
+    ],
+  },
+  "Monstera": {
+    botanicalName: "Monstera deliciosa",
+    pot: "Large container with sturdy support (moss pole recommended)",
+    soil: "Well-draining, peat-based soil mix",
+    waterNeeds: "Moderate (Water when top 2 inches of soil are dry)",
+    sunlight: "Bright, indirect light",
+    temperature: "18C - 30C [65F - 85F]",
+    humidity: "Moderate to High",
+    growthRate: "Fast",
+    careDifficulty: "Easy to Moderate",
+    toxicity: "Toxic to pets and humans if ingested",
+    commonProblems: [
+      "Yellowing leaves due to overwatering",
+      "Brown edges from low humidity",
+      "Pest issues like spider mites, thrips, and mealybugs",
+    ],
+    incompatiblePlants: [
+      "Plants that prefer drier conditions like succulents",
+      "Low-light plants that can't tolerate bright indirect light",
+    ],
+  },
+};
+
+export default plantDatabase;
