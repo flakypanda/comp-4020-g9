@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    searchInput.addEventListener("input", function () {
+        if (this.value === "") {
+            resetSearch();
+        }
+    });
+
     function performSearch() {
         const wordSearched = searchInput.value.toLowerCase().trim();
         if (!wordSearched) {
