@@ -7,12 +7,20 @@
   border-radius: 10px;
 }
 
-/* Container */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f5f1;
+}
+
 .diagnosis-container {
-  top: 0;
+  min-height: 100%;
+  width: 100%;
   margin-top: 70px;
   align-items: center;
   background-color: #f0f5f1;
+  padding-bottom: 40px;
 }
 
 .diagnosis-header {
@@ -139,9 +147,9 @@
 
 /* Floating Add Button */
 .add-plant-btn {
-  position: absolute; 
+  position: absolute;
   bottom: 90px;
-  right: 20px; 
+  right: 20px;
   width: 60px;
   height: 60px;
   background-color: #008000;
