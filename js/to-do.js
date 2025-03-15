@@ -8,6 +8,7 @@ const upcomingContainer = document.getElementById("upcoming");
 
 let selectedDate = localStorage.getItem("selectedDate") || new Date().toISOString().split("T")[0];
 
+//add a new task
 function addTask() {
     if (inputBox.value.trim() === "") {
         alert("You must write something");
@@ -33,6 +34,7 @@ addButton.addEventListener("click", function (e) {
     addTask();
 }, false);
 
+//complete, edit, or delete today's task 
 listContainer.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
@@ -43,13 +45,9 @@ listContainer.addEventListener("click", function (e) {
     } else if (e.target.tagName === "BUTTON") {
         let li = e.target.parentElement;
         let currentText = li.childNodes[0].nodeValue.trim();
-        
-        console.log(e.target.classList.value === "editBtn");
-        console.log(e.target.classList);
 
         if(e.target.classList.value === "editBtn") {
             // Save changes
-            console.log("it's here!");
             let input = li.querySelector(".edit-input");
             if (input) {
                 let updatedText = input.value.trim();
@@ -72,10 +70,36 @@ listContainer.addEventListener("click", function (e) {
     }
 }, false);
 
+//delete or edit tomorrow's task
 upcomingContainer.addEventListener("click", function (e) {
      if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove();
         saveData();
+    } else if (e.target.tagName === "BUTTON") {
+        let li = e.target.parentElement;
+        let currentText = li.childNodes[0].nodeValue.trim();
+
+        if(e.target.classList.value === "editBtn") {
+            // Save changes
+            let input = li.querySelector(".edit-input");
+            if (input) {
+                let updatedText = input.value.trim();
+                li.childNodes[0].nodeValue = updatedText + " ";
+                input.remove();
+            }
+            saveData();
+        } else {
+            // Convert to input field
+            let input = document.createElement("input");
+            input.type = "text";
+            input.value = currentText;
+            input.classList.add("edit-input");
+
+            li.childNodes[0].nodeValue = ""; // Clear text
+            li.insertBefore(input, e.target);
+            input.focus();
+        }
+        e.target.classList.toggle("editBtn");
     }
 }, false);
 
@@ -85,11 +109,13 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+//check if all tasks are completed
 function allChecked() {
     const listTasks = listContainer.querySelectorAll("li");
     return listTasks.length > 0 && Array.from(listTasks).every(li => li.classList.contains("checked"));
 }
 
+//save the Data to local storage
 function saveData() {
     let tasksByDate = JSON.parse(localStorage.getItem("tasksByDate")) || {};
     tasksByDate[selectedDate] = listContainer.innerHTML;
@@ -107,21 +133,20 @@ function saveData() {
     window.dispatchEvent(new Event("tasksUpdated"));
 }
 
+//show today's tasks
 function showTask() {
     let tasksByDate = JSON.parse(localStorage.getItem("tasksByDate")) || {};
     listContainer.innerHTML = tasksByDate[selectedDate] || "";
 }
 
+//show tomorrow's tasks
 function showUpcoming() {
     let tasksByDate = JSON.parse(localStorage.getItem("tasksByDate")) || {};
     let newDate = new Date(selectedDate);
     if(newDate != null ){
-        
         let tmr = newDate.getDate()+ 1;
 
         newDate = new Date(newDate.setDate(tmr));
-
-        //console.log(newDate.toISOString().split("T")[0]);
     }
     upcomingContainer.innerHTML = tasksByDate[newDate.toISOString().split("T")[0]] || "Nothing planned for tomorrow";
 }
