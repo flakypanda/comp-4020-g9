@@ -1,69 +1,139 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+<head>
     <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="index.css" rel="stylesheet" />
-      <link rel="icon" type="image/png" href="images/logo.png" />
-      <title>Plant Buddy</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="index.css" rel="stylesheet"/>
+        <link href="plantdoc.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="images/logo.png"/>
+        <title>Plant Buddy</title>
     </head>
-  </head>
+</head>
 
-  <body class="background">
-    <div class="phone-screen">
-      <div class="logo-container">
+<body class="background">
+<div class="phone-screen">
+    <div class="logo-container">
         <div class="streak">
-          <img src="images/leaf-white.png" alt="leaf" class="leaf" />
-          <span>0</span>
+            <img src="images/leaf-white.png" alt="leaf" class="leaf"/>
+            <span>0</span>
         </div>
 
         <div class="logo-center">
-          <span>Plant</span>
-          <img src="images/logo.png" alt="logo" class="logo" />
-          <span>Buddy</span>
+            <span>Plant</span>
+            <img src="images/logo.png" alt="logo" class="logo"/>
+            <span>Buddy</span>
         </div>
 
         <div class="profile">
-          <a href="profile.html">
-            <img src="images/profile-white.png" alt="profile" class="profile" />
-          </a>
+            <a href="profile.html">
+                <img src="images/profile-white.png" alt="profile" class="profile"/>
+            </a>
         </div>
-      </div>
-
-      <div class="nav-bar">
-        <a href="index.html" class="nav-link">
-          <img src="images/home-white.png" alt="home" class="nav-icon" />
-        </a>
-        <a href="journal.html" class="nav-link">
-          <img src="images/journal-white.png" alt="journal" class="nav-icon" />
-        </a>
-        <a href="todo.html" class="nav-link">
-          <img
-            src="images/to-do-list-white.png"
-            alt="to-do-list"
-            class="nav-icon"
-          />
-        </a>
-        <a href="community.html" class="nav-link">
-          <img
-            src="images/community-white.png"
-            alt="community"
-            class="nav-icon"
-          />
-        </a>
-        <a href="plantdoc.html" class="nav-link">
-          <img
-            src="images/stethoscope-white.png"
-            alt="plantdoc"
-            class="nav-icon"
-          />
-        </a>
-      </div>
     </div>
 
-    <script src="index/nav-bar.js"></script>
-    <script src="js/streak.js"></script>
-  </body>
+    <div class="diagnosis-container">
+        <div class="diagnosis-header">
+            <h2>Plant Doctor</h2>
+            <p>Identify plant problems and get solutions!</p>
+        </div>
+
+        <div class="diagnosis-content">
+            <div class="tab-navigation">
+                <button class="tab active" id="myPlantsTab">My Plants</button>
+                <button class="tab" id="pastDiagnosisTab">Past Diagnosis</button>
+            </div>
+
+            <div class="search-container">
+                <input
+                        type="text"
+                        placeholder="Search Plants..."
+                        id="searchPlants"
+                />
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="plants-grid" id="myPlantsSection">
+                <div class="plant-card" data-plant="Mother of Thousands">
+                    <div class="plant-image">
+                        <img src="images/plants/farah.jpg" alt="Farah">
+                    </div>
+                    <p class="plant-name">Mother of Thousands</p>
+                </div>
+
+                <div class="plant-card" data-plant="Red Roses">
+                    <div class="plant-image">
+                        <img src="images/plants/rosie.jpg" alt="Rosie">
+                    </div>
+                    <p class="plant-name">Red Roses</p>
+                </div>
+
+                <div class="plant-card" data-plant="Aloe Vera">
+                    <div class="plant-image">
+                        <img src="images/plants/aloe-vera.jpg" alt="No Name">
+                    </div>
+                    <p class="plant-name">Aloe Vera</p>
+                </div>
+            </div>
+
+
+            <div
+                    class="past-diagnosis"
+                    id="pastDiagnosisSection"
+                    style="display: none"
+            >
+                <div class="diagnosis-card">
+                    <h4>Mother of Thousands</h4>
+                    <p><strong>Issue:</strong> Yellowing Leaves</p>
+                    <p><strong>Diagnosis Date:</strong> March 8, 2025</p>
+                </div>
+
+                <div class="diagnosis-card">
+                    <h4>Red Roses</h4>
+                    <p><strong>Issue:</strong> Brown Spots on Leaves</p>
+                    <p><strong>Diagnosis Date:</strong> February 28, 2025</p>
+                </div>
+            </div>
+
+            <!--          <button class="add-plant-btn">+</button>-->
+        </div>
+    </div>
+
+    <div class="nav-bar">
+        <a href="index.html" class="nav-link">
+            <img src="images/home-white.png" alt="home" class="nav-icon"/>
+        </a>
+        <a href="journal.html" class="nav-link">
+            <img src="images/journal-white.png" alt="journal" class="nav-icon"/>
+        </a>
+        <a href="todo.html" class="nav-link">
+            <img
+                    src="images/to-do-list-white.png"
+                    alt="to-do-list"
+                    class="nav-icon"
+            />
+        </a>
+        <a href="community.html" class="nav-link">
+            <img
+                    src="images/community-white.png"
+                    alt="community"
+                    class="nav-icon"
+            />
+        </a>
+        <a href="plantdoc.html" class="nav-link">
+            <img
+                    src="images/stethoscope-white.png"
+                    alt="plantdoc"
+                    class="nav-icon"
+            />
+        </a>
+    </div>
+</div>
+
+<script src="index/nav-bar.js"></script>
+<script src="js/streak.js"></script>
+<script src="js/plant-doc.js"></script>
+<script src="js/diagnosis.js"></script>
+</body>
 </html>

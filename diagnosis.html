@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="index.css" rel="stylesheet" />
+      <link href="diagnosis.css" rel="stylesheet" />
+      <link rel="icon" type="image/png" href="images/logo.png" />
+      <title>Plant Buddy</title>
+    </head>
+  </head>
+
+  <body class="background">
+    <div class="phone-screen">
+      <div class="logo-container">
+        <div class="streak">
+          <img src="images/leaf-white.png" alt="leaf" class="leaf" />
+          <span>0</span>
+        </div>
+
+        <div class="logo-center">
+          <span>Plant</span>
+          <img src="images/logo.png" alt="logo" class="logo" />
+          <span>Buddy</span>
+        </div>
+
+        <div class="profile">
+          <a href="profile.html">
+            <img src="images/profile-white.png" alt="profile" class="profile" />
+          </a>
+        </div>
+      </div>
+
+      <div class="diagnosis-container">
+        <div class="diagnosis-header">
+          <a href="plantdoc.html">
+            <img
+              id="backbutton"
+              src="images/diagnosis/back-button.png"
+              alt="back"
+              class="back-btn"
+            />
+          </a>
+          <h2 id="plantPetName" class="diag-title"></h2>
+        </div>
+
+        <div class="diag-content">
+          <div class="plant-info">
+            <div>
+              <div class="plant-image-container">
+                <img id="plantImage" src="" alt="Plant" />
+              </div>
+              <p id="plantScientificName" class="scientific-name"></p>
+            </div>
+
+            <div class="search-container">
+              <input
+                type="text"
+                placeholder="Search symptoms..."
+                id="searchSymptoms"
+              />
+              <button class="search-btn">Search</button>
+            </div>
+
+            <div class="common-issues">
+<!--              <h3 class="issue-title">Common Issues</h3>-->
+              <div id="issuesContainer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <a href="index.html" class="nav-link">
+          <img src="images/home-white.png" alt="home" class="nav-icon" />
+        </a>
+        <a href="journal.html" class="nav-link">
+          <img src="images/journal-white.png" alt="journal" class="nav-icon" />
+        </a>
+        <a href="todo.html" class="nav-link">
+          <img
+            src="images/to-do-list-white.png"
+            alt="to-do-list"
+            class="nav-icon"
+          />
+        </a>
+        <a href="community.html" class="nav-link">
+          <img
+            src="images/community-white.png"
+            alt="community"
+            class="nav-icon"
+          />
+        </a>
+        <a href="plantdoc.html" class="nav-link">
+          <img
+            src="images/stethoscope-white.png"
+            alt="plantdoc"
+            class="nav-icon"
+          />
+        </a>
+      </div>
+    </div>
+
+    <script src="index/nav-bar.js"></script>
+    <script src="js/streak.js"></script>
+    <script src="js/diagnosis-db.js"></script>
+    <script src="js/diagnosis.js"></script>
+  </body>
+</html>
