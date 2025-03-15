@@ -21,6 +21,9 @@ function addTask() {
     span.innerHTML = "\u00d7";
     li.appendChild(span);
 
+    let edit = document.createElement("button");
+    li.appendChild(edit);
+
     listContainer.appendChild(li);
     saveData();
     inputBox.value = "";
@@ -35,6 +38,42 @@ listContainer.addEventListener("click", function (e) {
         e.target.classList.toggle("checked");
         saveData();
     } else if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+        saveData();
+    } else if (e.target.tagName === "BUTTON") {
+        let li = e.target.parentElement;
+        let currentText = li.childNodes[0].nodeValue.trim();
+        
+        console.log(e.target.classList.value === "editBtn");
+        console.log(e.target.classList);
+
+        if(e.target.classList.value === "editBtn") {
+            // Save changes
+            console.log("it's here!");
+            let input = li.querySelector(".edit-input");
+            if (input) {
+                let updatedText = input.value.trim();
+                li.childNodes[0].nodeValue = updatedText + " ";
+                input.remove();
+            }
+            saveData();
+        } else {
+            // Convert to input field
+            let input = document.createElement("input");
+            input.type = "text";
+            input.value = currentText;
+            input.classList.add("edit-input");
+
+            li.childNodes[0].nodeValue = ""; // Clear text
+            li.insertBefore(input, e.target);
+            input.focus();
+        }
+        e.target.classList.toggle("editBtn");
+    }
+}, false);
+
+upcomingContainer.addEventListener("click", function (e) {
+     if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove();
         saveData();
     }

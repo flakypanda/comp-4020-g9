@@ -92,7 +92,7 @@ ul li {
   background-color: #f0fcf1;
 }
 
-ul li::before {
+.to-do_today li::before {
   content: "";
   position: absolute;
   height: 28px;
@@ -105,13 +105,13 @@ ul li::before {
   left: 8px;
 }
 
-ul li.checked {
+.to-do_today li.checked {
   align-items: center;
   color: #555;
   text-decoration: line-through;
 }
 
-ul li.checked::before {
+.to-do_today li.checked::before {
   background-image: url(images/checked.png);
 }
 
@@ -135,3 +135,33 @@ ul li span:hover {
   border-radius: 25%;
 }
 
+ul li button {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  background-image: url(images/to-do-edit.png);
+  background-size: 17px;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+}
+
+ul li button:hover {
+  background-color: #E8F2E9;
+  border-radius: 25%;
+}
+
+ul li button.editBtn {
+  background-image: url(images/edit-done.png);
+}
