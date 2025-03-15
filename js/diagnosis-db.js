@@ -6,10 +6,17 @@ const plantDatabase = {
     issues: [
       {
         title: "Yellowing Leaves",
-        reasons: ["Overwatering", "Root rot"],
+        reasons: [
+          "Overwatering",
+          "Root rot",
+          "Too Much Direct Sunlight",
+          "Nutrient Deficiency",
+        ],
         solutions: [
-          "Reduce watering",
-          "Ensure proper drainage",
+          "Reduce watering: Water only when the topsoil is completely dry",
+          "Ensure proper drainage: Use well-draining soil and a pot with drainage holes",
+          "Move to indirect light: Bright but indirect sunlight is ideal; too much direct sun can stress the plant",
+          "Fertilize appropriately: Use a diluted succulent fertilizer once a month during the growing season",
         ],
       },
       {
@@ -32,6 +39,21 @@ const plantDatabase = {
         reasons: ["Underwatering", "Nutrient deficiency"],
         solutions: ["Water regularly", "Use balanced fertilizer"],
       },
+      {
+        title: "Black Spots",
+        reasons: [
+          "Fungal Infection (Black Spot Disease)",
+          "Poor Air Circulation",
+          "Lack of Treatment",
+          "Infected Fallen Leaves",
+        ],
+        solutions: [
+          "Avoid misting & keep leaves dry: Moisture on leaves encourages fungal growth; water at the base instead",
+          "Prune affected leaves: Remove infected leaves to prevent spreading",
+          "Use a fungicide: Apply a rose-safe fungicide to treat and prevent future outbreaks",
+          "Clean up plant debris: Remove fallen leaves around the plant to reduce reinfection risk",
+        ],
+      },
     ],
   },
   "Aloe Vera": {
@@ -40,11 +62,18 @@ const plantDatabase = {
     scientificName: "Aloe Barbadensis",
     issues: [
       {
-        title: "Mushy Leaves",
-        reasons: ["Overwatering"],
+        title: "Mushy Brown Spots",
+        reasons: [
+          "Overwatering",
+          "Poor Drainage",
+          "Lack of Sunlight",
+          "Fungal or Bacterial Rot",
+        ],
         solutions: [
-          "Allow soil to dry between waterings",
-          "Use well-draining cactus soil",
+          "Reduce watering: Aloe Vera needs infrequent watering; only water when the soil is completely dry",
+          "Ensure well-draining soil and pot: Use a cactus/succulent mix and a pot with drainage holes",
+          "Move to a brighter location: Aloe Vera thrives in bright, indirect light; place it near a sunny window",
+          "Trim affected areas & improve air circulation: Remove mushy leaves and ensure proper ventilation to prevent further spread"
         ],
       },
     ],
