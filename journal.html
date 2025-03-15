@@ -6,6 +6,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link href="index.css" rel="stylesheet" />
+      <link href="journal.css" rel="stylesheet" />
       <link rel="icon" type="image/png" href="images/logo.png" />
       <title>Plant Buddy</title>
     </head>
@@ -29,6 +30,28 @@
           <a href="profile.html">
             <img src="images/profile-white.png" alt="profile" class="profile" />
           </a>
+        </div>
+      </div>
+      
+      <!-- Home screen -->
+      <div class="home-container">
+        <!-- Dynamic Calendar -->
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button id="prevWeek">&lt;</button>
+            <span id="monthYear"></span>
+            <button id="nextWeek">&gt;</button>
+          </div>
+          <div class="calendar-grid">
+            <div class="day-label">S</div>
+            <div class="day-label">M</div>
+            <div class="day-label">T</div>
+            <div class="day-label">W</div>
+            <div class="day-label">T</div>
+            <div class="day-label">F</div>
+            <div class="day-label">S</div>
+          </div>
+          <div class="calendar-week" id="weekDays"></div>
         </div>
       </div>
 
@@ -61,9 +84,36 @@
           />
         </a>
       </div>
+      
+      <!--- Journal --->
+      <div class="journal">
+        <div class="journal_entry">
+          <h3>Journal Entry</h3>
+          <ul>
+            <li>Farah</li>
+            <li class="active">Rosie</li>
+            <li>Aloe Vera</li>
+          </ul>
+        </div>
+        
+        <div class="journal_view">
+          <h3>--------------------------------------------------------------</h3>
+        </div>
+        
+        <div class="gallery">
+          <img src="images/plants/rosie.jpg" alt="plant" width="600" height="400">
+          <div class="desc">Roses at 20 weeks <button>Edit</button><button>Delete</button></div>
+        </div>
+        
+        <button onclick="add()">New Entry +</button>
+      </div>
+      
+      
     </div>
 
+    <script src="index/calendar.js"></script>
     <script src="index/nav-bar.js"></script>
     <script src="js/streak.js"></script>
+    <script src="js/journal.js"></script>
   </body>
 </html>
