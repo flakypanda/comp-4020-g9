@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
 .list-container,
-.to-do_upcoming {
+.to-do_upcoming, .to-do_today {
   font-family: "Roboto", sans-serif;
-  color: black;
+  color: #386134;
 }
 
 #list-container li {
@@ -13,8 +13,6 @@
 
 .week {
   width: 100%;
-  /* max-width: 540px */
-  /* display:flex; */
   background-color: white;
   margin: 100px auto 20px;
   padding: 40px 30px 70px;
@@ -26,10 +24,14 @@
   justify-content: center;
 }
 
+.to-do {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .to-do_today {
   width: 100%;
   margin: auto;
-  padding: auto;
   background-color: white;
 }
 
@@ -43,7 +45,7 @@
   justify-content: space-between;
   background-color: #edeef0;
   border-radius: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
   margin: 25px;
 }
 
@@ -71,10 +73,17 @@ input {
   background-color: #849884;
 }
 
+ul {
+  display: flex;
+  flex-direction: column;
+  /*align-items: start; /* Centers list items horizontally */
+  padding: 0;
+}
+
 ul li {
   list-style: none;
   font-size: 16px;
-  padding: 12px 8px 12px 50px;
+  padding: 12px 0px 12px 50px;
   margin: 10px;
   user-select: none;
   cursor: pointer;
@@ -83,7 +92,7 @@ ul li {
   background-color: #f0fcf1;
 }
 
-ul li::before {
+.to-do_today li::before {
   content: "";
   position: absolute;
   height: 28px;
@@ -96,20 +105,23 @@ ul li::before {
   left: 8px;
 }
 
-ul li.checked {
+.to-do_today li.checked {
   align-items: center;
   color: #555;
   text-decoration: line-through;
 }
 
-ul li.checked::before {
+.to-do_today li.checked::before {
   background-image: url(images/checked.png);
 }
 
 ul li span {
   position: absolute;
-  right: 0;
-  top: 5px;
+  right: 0px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
   width: 40px;
   height: 40px;
   font-size: 22px;
@@ -119,6 +131,37 @@ ul li span {
 }
 
 ul li span:hover {
-  background-color: #edeef0;
+  background-color: #E8F2E9;
   border-radius: 25%;
+}
+
+ul li button {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  background-image: url(images/to-do-edit.png);
+  background-size: 17px;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+}
+
+ul li button:hover {
+  background-color: #E8F2E9;
+  border-radius: 25%;
+}
+
+ul li button.editBtn {
+  background-image: url(images/edit-done.png);
 }

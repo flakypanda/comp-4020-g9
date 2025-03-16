@@ -1,3 +1,5 @@
+import plantDatabase from "./plant-db.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const addPlantBtn = document.getElementById("addPlantBtn");
   const plantFormOverlay = document.getElementById("plantFormOverlay");
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const plantInfoModal = document.getElementById("plantInfoModal");
   const modalPlantImage = document.getElementById("modalPlantImage");
   const modalPlantPetName = document.getElementById("modalPlantPetName");
+  const modalPlantBotName = document.getElementById("modalPlantBotName");
   const modalPlantName = document.getElementById("modalPlantName");
   const modalPlantCare = document.getElementById("modalPlantCare");
   const closePlantInfo = document.querySelector(".close-modal");
@@ -63,8 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to format date to "Month Day, Year"
   function formatDate(dateString) {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    let actDate = new Date(dateString);//create new Date object .. buggy and creates a day before
+    let tmr = actDate.getDate()+ 1;//add to the new date
+    actDate = new Date(actDate.setDate(tmr));
+    return actDate;
   }
 
   // Function to close form and reset fields
@@ -96,13 +101,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to add a new plant
   function addNewPlant() {
-    const petName = document.getElementById("plantPetName").value.trim();
+    let petName = document.getElementById("plantPetName").value.trim();
+    petName ||= "_";
     const plantName = document.getElementById("plantName").value.trim();
     const plantDate = document.getElementById("plantDate").value;
+    
     const formattedDate = formatDate(plantDate);
     const plantImageSrc = imagePreview.src;
 
-    if (!petName || !plantName || !plantDate) {
+    if (!plantName || !plantDate) {
       alert("Please fill in all fields!");
       return;
     }
@@ -146,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         plantToEdit.petName;
       plantCard.querySelector(".plant-name").textContent =
         plantToEdit.plantName;
-      plantCard.querySelector(".date").textContent = plantToEdit.dateAdded;
+      plantCard.querySelector(".date").textContent = plantToEdit.dateAdded.toISOString().split("T")[0];
       plantCard.querySelector(".plant-image").src = plantToEdit.imageSrc;
     }
 
@@ -165,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <span class="plant-name">${plant.plantName}</span>
           <div class="date-container">
               <span class="date-title">Date Added:</span>
-              <span class="date">${plant.dateAdded}</span>
+              <span class="date">${plant.dateAddedRaw}</span>
           </div>
           <div class="menu-container">
               <img src="images/menu.png" alt="menu" class="menu-icon" />
@@ -175,6 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
           </div>
       `;
+
+    plantCard.addEventListener("click", function (event) {
+      if (!event.target.closest(".menu-container")) {
+        openPlantInfo(plant.id);
+      }
+    });
 
     // Edit button
     plantCard.querySelector(".edit-btn").addEventListener("click", function () {
@@ -224,13 +237,69 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openPlantInfo(plant) {
+    const plantName = plant.querySelector(".plant-name").textContent.trim();
+    const plantDetails = plantDatabase[plantName] || {
+      botanicalName: "Unknown",
+      pot: "Unknown",
+      soil: "Unknown",
+      waterNeeds: "Unknown",
+      sunlight: "Unknown",
+      temperature: "Unknown",
+      humidity: "Unknown",
+      growthRate: "Unknown",
+      careDifficulty: "Unknown",
+      toxicity: "Unknown",
+    };
+
     modalPlantImage.src = plant.querySelector(".plant-image").src;
     modalPlantPetName.textContent =
       plant.querySelector(".plant-pet-name").textContent;
-    modalPlantName.textContent = plant.querySelector(".plant-name").textContent;
+    modalPlantName.textContent = plantName;
+    modalPlantBotName.textContent = plantDetails.botanicalName;
+    modalPlantCare.textContent = plantDetails.careDifficulty;
+    modalPot.textContent = plantDetails.pot;
+    modalSoilNeeds.textContent = plantDetails.soil;
+    modalWaterNeeds.textContent = plantDetails.waterNeeds;
+    modalSunlight.textContent = plantDetails.sunlight;
+    modalTemp.textContent = plantDetails.temperature;
+    modalHumid.textContent = plantDetails.humidity;
+    modalGrowthRate.textContent = plantDetails.growthRate;
+    modalToxicity.textContent = plantDetails.toxicity;
 
-    // Example Care Difficulty (You can replace with real data)
-    modalPlantCare.textContent = "Easy";
+    const commonProblemsList = document.getElementById("modalCommonProbs");
+    commonProblemsList.innerHTML = "";
+
+    if (plantDetails.commonProblems && plantDetails.commonProblems.length > 0) {
+      plantDetails.commonProblems.forEach((problem) => {
+        let li = document.createElement("li");
+        li.textContent = problem;
+        commonProblemsList.appendChild(li);
+      });
+    } else {
+      let li = document.createElement("li");
+      li.textContent = "No common problems listed.";
+      commonProblemsList.appendChild(li);
+    }
+
+    const incompatiblePlants = document.getElementById(
+      "modalIncompatiblePlants"
+    );
+    incompatiblePlants.innerHTML = "";
+
+    if (
+      plantDetails.incompatiblePlants &&
+      plantDetails.incompatiblePlants.length > 0
+    ) {
+      plantDetails.incompatiblePlants.forEach((plant) => {
+        let li = document.createElement("li");
+        li.textContent = plant;
+        incompatiblePlants.appendChild(li);
+      });
+    } else {
+      let li = document.createElement("li");
+      li.textContent = "No incompatible plants listed.";
+      incompatiblePlants.appendChild(li);
+    }
 
     plantInfoModal.style.display = "block";
     plantFormOverlay.style.display = "block";
@@ -247,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".menu-container").forEach((menu) => {
     menu.addEventListener("click", function (event) {
-      event.stopPropagation(); // Stops the event from bubbling up
+      event.stopPropagation();
     });
   });
 

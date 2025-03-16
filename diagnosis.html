@@ -2,31 +2,30 @@
 
 <html lang="en">
   <head>
+    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link href="index.css" rel="stylesheet" />
-      <link href="to-do.css" rel="stylesheet" />
+      <link href="diagnosis.css" rel="stylesheet" />
       <link rel="icon" type="image/png" href="images/logo.png" />
       <title>Plant Buddy</title>
+    </head>
   </head>
 
   <body class="background">
     <div class="phone-screen">
       <div class="logo-container">
-        <!-- streak -->
         <div class="streak">
           <img src="images/leaf-white.png" alt="leaf" class="leaf" />
           <span>0</span>
         </div>
 
-        <!-- logo -->
         <div class="logo-center">
           <span>Plant</span>
           <img src="images/logo.png" alt="logo" class="logo" />
           <span>Buddy</span>
         </div>
 
-        <!-- profile -->
         <div class="profile">
           <a href="profile.html">
             <img src="images/profile-white.png" alt="profile" class="profile" />
@@ -34,31 +33,45 @@
         </div>
       </div>
 
-      <!-- Home screen -->
-      <div class="home-container">
-        <!-- Dynamic Calendar -->
-        <div class="calendar-container">
-          <div class="calendar-header">
-            <button id="prevWeek">&lt;</button>
-            <span id="monthYear"></span>
-            <button id="nextWeek">&gt;</button>
-          </div>
-          <div class="calendar-grid">
-            <div class="day-label">S</div>
-            <div class="day-label">M</div>
-            <div class="day-label">T</div>
-            <div class="day-label">W</div>
-            <div class="day-label">T</div>
-            <div class="day-label">F</div>
-            <div class="day-label">S</div>
-          </div>
-          <div class="calendar-week" id="weekDays"></div>
+      <div class="diagnosis-container">
+        <div class="diagnosis-header">
+          <a href="plantdoc.html">
+            <img
+              id="backbutton"
+              src="images/diagnosis/back-button.png"
+              alt="back"
+              class="back-btn"
+            />
+          </a>
+          <h2 id="plantPetName" class="diag-title"></h2>
         </div>
 
-        <!-- Greenhouse -->
+        <div class="diag-content">
+          <div class="plant-info">
+            <div>
+              <div class="plant-image-container">
+                <img id="plantImage" src="" alt="Plant" />
+              </div>
+              <p id="plantScientificName" class="scientific-name"></p>
+            </div>
+
+            <div class="search-container">
+              <input
+                type="text"
+                placeholder="Search symptoms..."
+                id="searchSymptoms"
+              />
+              <button class="search-btn">Search</button>
+            </div>
+
+            <div class="common-issues">
+<!--              <h3 class="issue-title">Common Issues</h3>-->
+              <div id="issuesContainer"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Navigation Bar at the bottom of the screen -->
       <div class="nav-bar">
         <a href="index.html" class="nav-link">
           <img src="images/home-white.png" alt="home" class="nav-icon" />
@@ -88,28 +101,11 @@
           />
         </a>
       </div>
-      <!-- Task to-do list -->
-       <div class="to-do">
-          <div class="to-do_today">
-            <h3>Tasks to be done today</h3>
-            <ul id="list-container"></ul>
-            <div class="row">
-              <input type="text" id="input-box" placeholder=" Add a new task" />
-              <button id="addButton">Add</button>
-            </div>
-          </div>
-
-          <div class="to-do_upcoming">
-            <h3> Tomorrow </h3>
-            <!-- change form upcoming to tomorrow or on a date -->
-            <ul id="upcoming"></ul>
-          </div>
-        </div>
     </div>
 
-    <!-- Identifies active page -->
     <script src="index/nav-bar.js"></script>
-    <script src="index/calendar.js"></script>
-    <script src="js/to-do.js"></script>
+    <script src="js/streak.js"></script>
+    <script src="js/diagnosis-db.js"></script>
+    <script src="js/diagnosis.js"></script>
   </body>
 </html>

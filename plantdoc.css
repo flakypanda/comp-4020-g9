@@ -1,0 +1,178 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #004d00;
+  border-radius: 10px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f5f1;
+}
+
+.diagnosis-container {
+  min-height: 100%;
+  width: 100%;
+  margin-top: 70px;
+  align-items: center;
+  background-color: #f0f5f1;
+  padding-bottom: 40px;
+}
+
+.diagnosis-header {
+  background-color: #004d00;
+  color: white;
+  padding: 15px;
+}
+
+.diagnosis-content {
+  padding: 15px 15px 35px 15px;
+}
+
+/* Tabs */
+.tab-navigation {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e6f2e6;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab.active {
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  margin-left: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Plant Grid */
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+}
+
+.plant-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 150px;
+  min-width: 100px;
+  max-width: 140px;
+}
+
+.plant-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+}
+
+.plant-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.plant-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #004d00;
+  margin: 0;
+  text-align: center;
+}
+
+/* Past Diagnosis */
+.past-diagnosis {
+  width: 100%;
+  text-align: center;
+}
+
+.diagnosis-card {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Floating Add Button */
+.add-plant-btn {
+  position: absolute;
+  bottom: 90px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #008000;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Hover effect */
+.add-plant-btn:hover {
+  background-color: #006400;
+}
+
+/* Click effect */
+.add-plant-btn:active {
+  transform: scale(0.9);
+}
