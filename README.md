@@ -1,6 +1,6 @@
 ---
 title: My Plant Buddy
-subtitle: A COMP4020 HCI II Project by Group 9 (Chika Ngene, Fatima Aja, Faiza Salami, Jasmin Bisonnette, and Ryan Mack)
+subtitle: A COMP4020 HCI II Project by Group 9 (Chika Ngene, Fatima Aja, Faiza Salami, Jasmin Bissonnette, and Ryan Mack)
 date: Winter 2025
 ---
 
