@@ -24,7 +24,7 @@ html, body {
 }
 
 .diagnosis-header {
-  background-color: #004d00;
+  background-color: rgb(20, 119, 45);
   color: white;
   padding: 15px;
 }
@@ -73,13 +73,17 @@ html, body {
 }
 
 .search-btn {
-  background-color: green;
+  background-color: #004d00;
   color: white;
   border: none;
   margin-left: 5px;
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #386134;
 }
 
 /* Plant Grid */

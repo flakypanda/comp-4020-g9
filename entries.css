@@ -1,0 +1,73 @@
+.journal-container {
+  top: 0;
+  margin-top: 70px;
+  align-items: center;
+  background-color: #f0f5f1;
+}
+
+.journal-header {
+  display: flex;
+  align-items: center;
+  background-color: rgb(20, 119, 45);
+  color: white;
+}
+
+.back-btn {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.dropdown-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#plantDropdown {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #004d00;
+}
+
+.journal-content {
+  padding: 15px;
+  height: 550px;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: #004d00;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 15px;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #386134;
+}
+
+.add-entry-btn {
+  font-family: "Roboto", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.entries-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entry-card {
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

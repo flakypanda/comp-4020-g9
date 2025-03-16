@@ -32,7 +32,7 @@
           </a>
         </div>
       </div>
-      
+
       <!-- Home screen -->
       <div class="home-container">
         <!-- Dynamic Calendar -->
@@ -84,42 +84,39 @@
           />
         </a>
       </div>
-      
+
       <!-- Journal -->
       <div class="journal">
-        <div class="journal_entry">
-          <h3>Journal
-            <button class="entry" onclick="add()">New Entry +</button>
-            <button class="entry">Filter/Sort</button>
-          </h3>
-          
-          <ul>
-            <li>Farah</li>
-            <li class="active" onClick="openGallery()">Rosie</li>
-            <li>Aloe Vera</li>
-          </ul>
+        <div class="journal-header">
+          <span class="journal-title">Plant Journal</span>
+          <div class="search-container">
+            <input type="text" placeholder="Search..." id="searchPlants" />
+            <button class="search-btn">Search</button>
+          </div>
+          <button class="filter">Filter/Sort</button>
         </div>
-        
-        <div class="journal_view">
-          <div class="gallery" id="myGallery" onClick="openCard()">
-            <img src="images/plants/rosie.jpg" alt="plant">
-            <div class="desc">Roses at 20 weeks <button onClick="openCard()">Edit</button><button>Delete</button></div>
-          </div>
-          
-          <div class="gallery" id="myGallery" onClick="openCard()">
-            <img src="images/plants/farah.jpg" alt="plant">
-            <div class="desc">Farah at 10 weeks <button onClick="openCard()">Edit</button><button>Delete</button></div>
-          </div>
-        
-          <div class="card-popup" id="myCard">
-            <div class="card-view">
-              <div class="desc">Roses at 20 weeks <button onClick="closeCard()">Save & Close</button></div>
+
+        <div class="journal-content">
+          <div class="plants-grid" id="myPlantsSection">
+            <div class="plant-card" data-plant="Mother of Thousands">
+              <div class="plant-image">
+                <img src="images/plants/farah.jpg" alt="Farah" />
+              </div>
+              <p class="plant-name">Mother of Thousands</p>
             </div>
-          </div>
-          
-          <div class="card-popup" id="myCard">
-            <div class="card-view">
-              <div class="desc">Farah at 10 weeks <button onClick="closeCard()">Save & Close</button></div>
+
+            <div class="plant-card" data-plant="Red Roses">
+              <div class="plant-image">
+                <img src="images/plants/rosie.jpg" alt="Rosie" />
+              </div>
+              <p class="plant-name">Red Roses</p>
+            </div>
+
+            <div class="plant-card" data-plant="Aloe Vera">
+              <div class="plant-image">
+                <img src="images/plants/aloe-vera.jpg" alt="No Name" />
+              </div>
+              <p class="plant-name">Aloe Vera</p>
             </div>
           </div>
         </div>

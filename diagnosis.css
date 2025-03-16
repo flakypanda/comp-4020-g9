@@ -19,7 +19,7 @@
 .diagnosis-header {
   display: flex;
   align-items: center;
-  background-color: #004d00;
+  background-color: rgb(20, 119, 45);
   color: white;
   padding: 15px;
 }
@@ -73,13 +73,17 @@
 }
 
 .search-btn {
-  background: #2e7d32;
+  background: #004d00;
   color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 5px;
+}
+
+button:hover {
+  background-color: #386134;
 }
 
 .issue-card {
