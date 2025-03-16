@@ -14,3 +14,11 @@ function openCard() {
 function closeCard() {
   document.getElementById("myCard").style.display = "none";
 }
+
+function openGallery() {
+  document.getElementById("myGallery").style.display = "block";
+}
+
+function closeGallery() {
+  document.getElementById("myGallery").style.display = "none";
+}

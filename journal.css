@@ -63,6 +63,7 @@ div.gallery {
   border: 1px solid #ccc;
   float: left;
   width: 180px;
+  display: none;
 }
 
 div.gallery:hover {

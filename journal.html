@@ -95,27 +95,33 @@
           
           <ul>
             <li>Farah</li>
-            <li class="active">Rosie</li>
+            <li class="active" onClick="openGallery()">Rosie</li>
             <li>Aloe Vera</li>
           </ul>
         </div>
         
         <div class="journal_view">
-          <div class="gallery" onClick="openCard()">
+          <div class="gallery" id="myGallery" onClick="openCard()">
             <img src="images/plants/rosie.jpg" alt="plant">
-            <div class="desc">Roses at 20 weeks <button>Edit</button><button>Delete</button></div>
+            <div class="desc">Roses at 20 weeks <button onClick="openCard()">Edit</button><button>Delete</button></div>
           </div>
           
-          <div class="gallery" onClick="openCard()">
+          <div class="gallery" id="myGallery" onClick="openCard()">
             <img src="images/plants/farah.jpg" alt="plant">
             <div class="desc">Farah at 10 weeks <button onClick="openCard()">Edit</button><button>Delete</button></div>
           </div>
         
-        <div class="card-popup" id="myCard">
-          <div class="card-view">
-            <div class="desc">Roses at 20 weeks <button onClick="closeCard()">Save & Close</button></div>
+          <div class="card-popup" id="myCard">
+            <div class="card-view">
+              <div class="desc">Roses at 20 weeks <button onClick="closeCard()">Save & Close</button></div>
+            </div>
           </div>
-        </div>
+          
+          <div class="card-popup" id="myCard">
+            <div class="card-view">
+              <div class="desc">Farah at 10 weeks <button onClick="closeCard()">Save & Close</button></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
