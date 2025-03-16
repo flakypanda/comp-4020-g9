@@ -49,6 +49,10 @@ button {
   font-size: 16px;
 }
 
+button.entry {
+  float: right;
+}
+
 button:hover {
   color: white;
   background-color:#386134;
@@ -67,10 +71,29 @@ div.gallery:hover {
 
 div.gallery img {
   width: 100%;
-  height: auto;
+  height: 200px;
 }
 
 div.desc {
   padding: 15px;
   text-align: center;
+}
+
+div.card-popup {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 75px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  background-color: white;
+}
+
+div.card-view {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  display: block;
+  width: 300px;
+  height: 500px;
 }

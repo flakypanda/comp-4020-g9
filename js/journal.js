@@ -6,3 +6,11 @@ function add() {
   }
   document.getElementById("name").innerHTML = text;
 }
+
+function openCard() {
+  document.getElementById("myCard").style.display = "block";
+}
+
+function closeCard() {
+  document.getElementById("myCard").style.display = "none";
+}

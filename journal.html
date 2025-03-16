@@ -85,10 +85,14 @@
         </a>
       </div>
       
-      <!--- Journal --->
+      <!-- Journal -->
       <div class="journal">
         <div class="journal_entry">
-          <h3>Journal Entry</h3>
+          <h3>Journal
+            <button class="entry" onclick="add()">New Entry +</button>
+            <button class="entry">Filter/Sort</button>
+          </h3>
+          
           <ul>
             <li>Farah</li>
             <li class="active">Rosie</li>
@@ -97,18 +101,23 @@
         </div>
         
         <div class="journal_view">
-          <h3>--------------------------------------------------------------</h3>
-        </div>
+          <div class="gallery" onClick="openCard()">
+            <img src="images/plants/rosie.jpg" alt="plant">
+            <div class="desc">Roses at 20 weeks <button>Edit</button><button>Delete</button></div>
+          </div>
+          
+          <div class="gallery" onClick="openCard()">
+            <img src="images/plants/farah.jpg" alt="plant">
+            <div class="desc">Farah at 10 weeks <button onClick="openCard()">Edit</button><button>Delete</button></div>
+          </div>
         
-        <div class="gallery">
-          <img src="images/plants/rosie.jpg" alt="plant" width="600" height="400">
-          <div class="desc">Roses at 20 weeks <button>Edit</button><button>Delete</button></div>
+        <div class="card-popup" id="myCard">
+          <div class="card-view">
+            <div class="desc">Roses at 20 weeks <button onClick="closeCard()">Save & Close</button></div>
+          </div>
         </div>
-        
-        <button onclick="add()">New Entry +</button>
+        </div>
       </div>
-      
-      
     </div>
 
     <script src="index/calendar.js"></script>
