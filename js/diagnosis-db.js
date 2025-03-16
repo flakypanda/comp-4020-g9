@@ -1,6 +1,6 @@
 const plantDatabase = {
   "Mother of Thousands": {
-    name: "Farah",
+    name: "Mother of Thousands",
     image: "images/plants/farah.jpg",
     scientificName: "Kalanchoe Daigremontiana",
     issues: [
@@ -30,7 +30,7 @@ const plantDatabase = {
     ],
   },
   "Red Roses": {
-    name: "Rosie",
+    name: "Red Roses",
     image: "images/plants/rosie.jpg",
     scientificName: "Rosa spp.",
     issues: [
@@ -57,7 +57,7 @@ const plantDatabase = {
     ],
   },
   "Aloe Vera": {
-    name: "_",
+    name: "Aloe Vera",
     image: "images/plants/aloe-vera.jpg",
     scientificName: "Aloe Barbadensis",
     issues: [

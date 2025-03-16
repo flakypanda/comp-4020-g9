@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" />
+    <link href="entries.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Plant Journal</title>
+  </head>
+  <body class="background">
+    <div class="phone-screen">
+      <div class="logo-container">
+        <div class="streak">
+          <img src="images/leaf-white.png" alt="leaf" class="leaf" />
+          <span>0</span>
+        </div>
+
+        <div class="logo-center">
+          <span>Plant</span>
+          <img src="images/logo.png" alt="logo" class="logo" />
+          <span>Buddy</span>
+        </div>
+
+        <div class="profile">
+          <a href="profile.html">
+            <img src="images/profile-white.png" alt="profile" class="profile" />
+          </a>
+        </div>
+      </div>
+
+      <div class="journal-container">
+        <!-- Journal Header -->
+        <div class="journal-header">
+          <a href="journal.html">
+            <img
+              id="backbutton"
+              src="images/diagnosis/back-button.png"
+              alt="back"
+              class="back-btn"
+            />
+          </a>
+          <h2 id="journalPlantTitle"></h2>
+        </div>
+
+        <!-- Dropdown to switch between plants -->
+        <div class="dropdown-container">
+          <select id="plantDropdown"></select>
+        </div>
+
+        <!-- Journal Entries -->
+        <div class="journal-content">
+          <button class="add-entry-btn">+ Add New Entry</button>
+          <div class="entries-list" id="entriesContainer"></div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <a href="index.html" class="nav-link">
+          <img src="images/home-white.png" alt="home" class="nav-icon" />
+        </a>
+        <a href="journal.html" class="nav-link">
+          <img src="images/journal-white.png" alt="journal" class="nav-icon" />
+        </a>
+        <a href="todo.html" class="nav-link">
+          <img
+            src="images/to-do-list-white.png"
+            alt="to-do-list"
+            class="nav-icon"
+          />
+        </a>
+        <a href="community.html" class="nav-link">
+          <img
+            src="images/community-white.png"
+            alt="community"
+            class="nav-icon"
+          />
+        </a>
+        <a href="plantdoc.html" class="nav-link">
+          <img
+            src="images/stethoscope-white.png"
+            alt="plantdoc"
+            class="nav-icon"
+          />
+        </a>
+      </div>
+    </div>
+
+    <script src="js/journal-db.js"></script>
+    <script src="js/entries.js"></script>
+  </body>
+</html>
