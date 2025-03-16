@@ -7,7 +7,9 @@ date: Winter 2025
 # My Plant Buddy
 ## COMP4020 HCI II G9
 
-This repository contains Group 9's medium fidelity prototype.
+This repository contains Group 9's medium fidelity prototype. 
+
+### **Recommended Browser to use is Google Chrome**
 
 How to run:
 ===========
