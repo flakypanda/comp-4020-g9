@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
 .background {
-  background-image: url("images/background.png");
+  /* background-image: url("images/background.png"); */
+  background: linear-gradient(135deg, #3d8040, #d4f3d4);
   height: 100vh; /* Full viewport height */
   background-position: center 0; /* Start at the top */
   background-size: cover; /* Cover the viewport */
@@ -114,10 +115,17 @@ img.logo {
 img.nav-icon {
   max-width: 40px;
   max-height: 40px;
+  padding: 2px;
+}
+
+img.nav-icon:hover {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(120deg);
 }
 
 .nav-link.active .nav-icon {
   filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(120deg);
+  border: 2.5px solid #ddd;
+  border-radius: 20%;
   opacity: 2;
   transition: all 0.3s ease;
 }
@@ -252,6 +260,12 @@ img.nav-icon {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+.plant:hover{
+  box-shadow: 0 0 15px #28a745;
+  transform: scale(1.02);
+  opacity: 0.9;
 }
 
 /* Position the menu container inside the plant card */

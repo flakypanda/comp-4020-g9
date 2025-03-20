@@ -103,6 +103,12 @@ button:hover {
   max-width: 140px;
 }
 
+.plant-card:hover{
+  box-shadow: 0 0 15px #28a745;
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
 .plant-image {
   display: flex;
   justify-content: center;
